@@ -1,0 +1,294 @@
+% Aditya Krishna, Amatullah Mir, Edwin Santos, and Zixuan Zhang (Group 6)
+
+
+\documentclass[12pt]{article}
+
+
+%----------Packages----------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{amsrefs}
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage[all]{xy}https://www.overleaf.com/project/5f9cd81364a7ee00010b72b4
+\usepackage[mathcal]{eucal}
+\usepackage{verbatim}  %%includes comment environment
+\usepackage{fullpage}  %%smaller margins
+\usepackage{hyperref}
+\usepackage{setspace}
+\onehalfspacing
+%----------Commands----------
+
+%%penalizes orphans
+\clubpenalty=9999
+\widowpenalty=9999
+
+%% bold math capitals
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+\renewcommand{\phi}{\varphi}
+%\renewcommand{\emptyset}{\O}
+
+\providecommand{\abs}[1]{\lvert #1 \rvert}
+\providecommand{\norm}[1]{\lVert #1 \rVert}
+\providecommand{\x}{\times}
+\providecommand{\ar}{\rightarrow}
+\providecommand{\arr}{\longrightarrow}
+
+
+%----------Theorems----------
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{nondefinition}[theorem]{Non-Definition}
+\newtheorem{exercise}[theorem]{Exercise}
+
+\numberwithin{equation}{subsection}
+
+
+
+\begin{document}
+
+\pagestyle{plain}
+
+
+%%---  sheet number for theorem counter
+%\setcounter{section}{1}   
+
+\begin{center}
+{\large Math 15910 Assignment 4} \\ 
+\vspace{.2in}  
+\end{center}
+
+
+
+\section{Exercise 1}
+Prove that if x $>$ -1 then, for every $n \in \mathbb{N}$, we have $(1+x)^n \geq 1 + nx$
+
+\begin{proof}
+If x $>$ -1, $\forall n \in \mathbb{N}$, then P(n):= $(1+x)^n \geq 1 + nx$.
+
+1) P(1): $(1+x)^n \geq 1 + nx$ where n = 1
+\\ $(1+x)^1 \geq 1+1*x$
+\\ $1+x \geq 1+x$
+
+2) $\forall k \in \mathbb{N}$, P(k) $\implies$ P(k+1)
+\\ If P(k) = $(1+x)^k \geq 1 + kx$
+\\ Then P(k+1) = $(1+x)^{k+1} \geq 1 + (k+1)x$
+\\ (1+x)*P(k) = $(1+x)^1*(1+x)^k \geq (1+kx)*(1+x)$
+\\  = $(1+x)^{k+1} \geq 1 + kx + x + kx^2$
+\\  = $(1+x)^{k+1} \geq 1 + (k+1)x + kx^2$
+\\ $1 + (k+1)x + kx^2 \geq 1 + (k+1)x$ if $kx^2 \geq 0$
+\\ Such that if $(1+x)^{k+1} \geq 1 + (k+1)x + kx^2$
+\\ then $(1+x)^{k+1} \geq 1 + (k+1)x + kx^2 \geq 1 + (k+1)x$
+\\ and $(1+x)^{k+1} \geq 1 + (k+1)x$
+
+Therefore, P(n) is true $\forall n \in \mathbb{N}$
+\end{proof}
+
+\section{Exercise 2}
+Let a,b $\in \mathbb{R}$
+\begin{proof}
+\\ (a) If a + b = 0 then b = -a
+\\ b = b + 0 (Additive Identity)
+\\ b = b + (a + (-a)) (Additive Inverse)
+\\ b = (b + a) + (-a) (Additive Associative)
+\\ b = 0 + (-a) (Proposition a + b = 0)
+\\ b = -a (Additive Identity)
+\\ (b) (-1)*a = -a
+\\ -a = (-1)*a
+\\ -a = (-a*$\frac{1}{a}$)*a (Multiplicative Inverse)
+\\ -a = (-a)*($\frac{1}{a}$*a) (Multiplicative Associative)
+\\ -a = (-a)*1 (Multiplicative Inverse)
+\\ -a = -a (Multiplicative Identity)
+\\ (c) (-1)*(-1) = 1
+\\ 0 = 0
+\\ 0 = 0*0 (Lemma C*0 = 0 where C = 0)
+\\ 0 = (1-1)*(1-1) (Additive Inverse)
+\\ 0 = 1*1 + 1*(-1) + (-1)*1 + (-1)*(-1) (Distributive)
+\\ 0 = 1 + (-1) + (-1) + (-1)*(-1) (Multiplicative Identity)
+\\ 0 = 0 + (-1) + (-1)*(-1) (Additive Inverse)
+\\ 0 = (-1) + (-1)*(-1) (Additive Identity)
+\\ 1 = (-1)*(-1) (Addition)
+\\ (d) If a $\neq$ 0 then 1/(-a) = -(1/a)
+\\ 1 = (-1)*(-1) (Part 2c)
+\\ 1 = (-1)*1*(-1) (Multiplicative Identity)
+\\ 1 = (-1)*a*$\frac{1}{a}$*(-1) (Multiplicative Inverse)
+\\ 1 = (-a)*$\frac{1}{a}$*(-1) (Part 2b)
+\\ $\frac{1}{(-a)}$ = $\frac{1}{a}$*(-1) (Division)
+\\ $\frac{1}{(-a)}$ = -($\frac{1}{a}$) 
+\\ (e) If a*a = a then a =0 or a = 1
+\\ Part 1
+\\ a = a*1 (Multiplicative Identity)
+\\ a = a*(a*$\frac{1}{a}$) (Multiplicative Inverse)
+\\ a = (a*a)*($\frac{1}{a}$) (Multiplicative Associative)
+\\ a = (a)*($\frac{1}{a}$) (Proposition a*a = a)
+\\ a = 1 (Multiplicative Inverse)
+\\ Part 2
+\\ a*a = a
+\\ a*a - a = 0 (Subtraction)
+\\ a(a - 1) = 0 (Distributive)
+\\ a = 0*$\frac{1}{a-1}$ (Division)
+\\ a = 0 (Lemma C*0 = 0)
+\end{proof}
+
+\section{Exercise 3.1.3}
+\textbf{Let a be a positive rational number. \\
+Let A = $\{x \in\ \mathbb Q\ |\x^2 < a\}$. Show that A is bounded in $\mathbb Q$\.}
+
+\begin{definition}
+Let F be an ordered field. Let A be a non-empty set of F. We say that A is bounded above if there is an element M $\in$ F with the property that if $x \in $ A, then $x \leq$ M. We say that A is bounded below if there is an element m $\in$ F such that if x $\in$ A, then m $\leq$ x. (m is a lower bound for A and M is the upper bound of A. We say that if A has an upper bound and a lower bound, then A is bounded.
+\end{definition}
+If $x^2 < a$, the square root of x yields both the negative and positive square root of a. 
+\begin{center}
+\\
+$x^2 < a$,
+\\
+$x < \sqrt{a}$ and $x > \sqrt{a}$,
+\\
+$-\sqrt{a} < x < \sqrt{a}$,
+\end{center}
+$-\sqrt{a}$ is the lower bound of A, and $\sqrt{a}$ is the upper bound of A. Using Definition 3.1, because A has an upper and lower bound, it is bounded in $\mathbb Q$.
+
+
+
+\section{Exercise 3.1.7}
+\textbf{Find the least upper bound in $\mathbb R$ of the set A in Exercise 3.1.3.}
+\\
+$\{x \in\ \mathbb Q\ |\x^2 < a\}$
+\\
+We note that every element of $\mathbb{Q}$ is less than $\sqrt{a}$ since $x < \sqrt{a}$.
+\\
+Assume that $\sqrt{a}$ is not the least upper bound. There must exist an $\epsilon > 0$ such that $\sqrt{a} - \epsilon$ is also an upper bound. We now claim that there is a positive rational number $a$ such that $\sqrt{a} - \epsilon < \sqrt{a}$. As $a$ is positive this always holds (there is no $\epsilon$ greater than 0 that when subtracted makes a positive integer more than itself). This means that $\sqrt{a}$ is the least upper bound. 
+\section{Exercise 3.1.14}
+  1)we define x=lub($A\cup B$)
+\\then x$\geq e$ for every element e in $A\cup B$, and therefore x is greater than every element in A and in B. 
+\\then x$\geq lub(A)$, x$\geq lub(B)$
+\\then x $\geq$ max(lub(A), lub(B)).
+\\inverse, we define x=max(lub(A), lub(B)).
+\\then $x\geq lub(A), x\geq lub(B) $. then x is greater than all elements in A and in B, x $\geq lub(A\cup B)$.
+\\To conclude, we got lub($A\cup B$)=max(lub(A), lub(B)). 
+
+\\2)$lub(A) \geq a, lub(b)\geq b,$ then $lub(a)+lub(b)\geq a+b.$ 
+\\since lub(A)+lub(B) is an upper bound for a+b, $lub(A)+lub(B)\geq lub(A+B).$
+\\inverse, $lub(A+B)\geq a+b$ for every element a in A and b in B. then $lub(A+B)-a \geq b$, then lub(A+B)-a is an upper bound for b and then $lub(A+B)-a \geq lub(B)$.
+\\then we arrange $lub(A+B)-lub(B) \geq a$, and then $lub(A+B)-lub(B) \geq lub(a)$, $lub(A+B) \geq lub(a)+lub(B)$.
+\\To conclude, $lub(A+B)= lub(a)+lub(B)$
+\\
+\\3) $lub(A) \geq a, lub(b)\geq b,$ then $lub(a)\cdot lub(b)\geq ab$.
+\\ $lub(A \cdot B) \geq ab$ for every element a in A and b in B. It follows that $lub(A \cdot B)/a \geq b$. It follows that $lub(A \cdot B)/a \geq lub(b)$ and so $lub(A \cdot B)/lub(b) \geq a$.This also means that $lub(A \cdot B)/b \geq a$. It follows that $lub(A \cdot B)/b \geq lub(a)$ and so $lub(A \cdot B)/lub(a) \geq b$. In conclusion $lub(A \cdot B)= lub(a)lub(B)$
+\\
+\\4) glb($A\cupB$) = min$\{$glb($A$),glb($A$)$\}$
+\\ If $A+B = \{a + b| a \in A, b \in B\}$ then glb($A+B$) = glb($A$) + glb($B$)
+\\ If the elements of $A$ and $B$ are positive and $A\cdot B = {ab | a \in A, b \in B}$, then glb($A \cdot B$) = glb($A$)glb($B$)
+
+\section{Exercise 3.2.9}
+1) we define the irrational number as k and the two rational numbers as $p_1/q_1, p_2/q_2$. for $p_i,q_i\in {\mathbb Z}$ and not equal to 0 
+\\ then we assume that k $\times p_1/q_1=p_2/q_2$.
+\\Since $p_1/q_1, p_2/q_2\neq 0$, k=$p_1*p_2/q_1*q_2$
+\\then we say since $p_i,q_i\in {\mathbb Z}$, $p_1*p_2,  q_1*q_2\in {\mathbb Z}$. Then k can be expressed in the form of p/q, where $p,q\in {\mathbb Z}$. However, irrational cannot be expressed in such form, thus contradiction is revealed. 
+\\We prove that irrational times a non-zero rational cannot be a rational.
+\\
+2) We show two examples:
+\\ $\sqrt{2}*\sqrt{2}=2$ is irrational times irrational equals rational.
+\\ $\sqrt{2}*\sqrt{3}=\sqrt{6}$ is irrational  times irrational equals irrational.
+\\Then we show that since rational and the irrational combine is the set of real number R, irrational is a subset of R. 
+\\Since R is closed under multiplication, irrational multiplication can have result only in R, irrational and rational. Since we show that both is possible, we prove it.
+
+
+\section{Bonus}
+We show in this part that p($\mathbb{R}$) is strictly bigger than $\mathbb{R}$ in cardinality through showing $\mathbb{R}$ to p($\mathbb{R}$) exists injection but not surjection.
+\\for injection, for any element $w\in \mathbb{R} $, w represent $\{w\}$ in p($\mathbb{R}$).
+\\for surjection, we assume there existed surjection. Then p($\mathbb{R}$) can be expressed as (f($w_1$),f($w_2$),...) for all $w_i \in \mathbb{R}$. Therefore we construct a set B=$\{x\in \mathbb{R} | x\notin f(x) \}$. And therefore B must not be in the range of f. 
+Since $x\in \mathbb{R}$, then B is in p($\mathbb{R}$). Since we assume surjection, B must can be expressed by f(x) for x in $\mathbb{R}$. 
+\\Therefore, contradiction, $\mathbb{R}$ to p($\mathbb{R}$) is injective but not surjective. 
+\\ Therefore $|\mathbb{R}|$ is strictly smaller than $|p(\mathbb{R})|$.
+\end{document}

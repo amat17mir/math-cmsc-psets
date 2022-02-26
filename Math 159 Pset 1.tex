@@ -1,0 +1,501 @@
+% Aditya Krishna, Amatullah Mir, Edwin Santos, Melanie Zhang, and Zixuan Zhang (Group 6)
+
+%LATEX TIPS (I'll think of more and feel free to add as you work thru this)
+% \\ for new line
+% enclose math in dollar signs, i.e. $[type math]$
+% https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols  for symbols
+% \ for space, \enspace for bigger space \quad for even bigger
+% {^{\mathrm{c}}} is the only way I know to type the complement symbol :(
+% more in Kevin's doc on canvas 
+
+\documentclass[12pt]{article}
+
+
+%----------Packages----------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{amsrefs}
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage[all]{xy}
+\usepackage[mathcal]{eucal}
+\usepackage{verbatim}  %%includes comment environment
+\usepackage{fullpage}  %%smaller margins
+\usepackage{hyperref}
+\usepackage{setspace}
+\onehalfspacing
+%----------Commands----------
+
+%%penalizes orphans
+\clubpenalty=9999
+\widowpenalty=9999
+
+%% bold math capitals
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+\renewcommand{\phi}{\varphi}
+%\renewcommand{\emptyset}{\O}
+
+\providecommand{\abs}[1]{\lvert #1 \rvert}
+\providecommand{\norm}[1]{\lVert #1 \rVert}
+\providecommand{\x}{\times}
+\providecommand{\ar}{\rightarrow}
+\providecommand{\arr}{\longrightarrow}
+
+
+%----------Theorems----------
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{nondefinition}[theorem]{Non-Definition}
+\newtheorem{exercise}[theorem]{Exercise}
+
+\numberwithin{equation}{subsection}
+
+
+
+\begin{document}
+
+\pagestyle{plain}
+
+
+%%---  sheet number for theorem counter
+%\setcounter{section}{1}   
+
+\begin{center}
+{\large Math 15910 Assignment 1} \\ 
+\vspace{.2in}  
+\end{center}
+
+
+\section{Exercise 1.3.9.}
+To show $=$, we show $\subseteq$ and $\supseteq.$
+\subsection*{$(ii) \enspace A \cap (B \cap C) = (A \cap B) \cap C $}
+\begin{lemma}
+$A \cap (B \cap C) \subseteq (A \cap B) \cap C $
+\end{lemma}
+\begin{proof}
+Let $x \in A \cap (B \cap C), \ \text{show} \ x \in (A \cap B) \cap C$ \\
+By definition of intersection, $ x \in A \ \text{and}\ x \in (B \cap C)
+\implies x \in A \ \text{and}\ x \in B \ \text{and}\  x \in C 
+\implies x \in (A \cap B) \ \text{and}\ x \in C 
+\implies x \in (A \cap B) \cap C $.
+\end{proof}
+
+\begin{lemma}
+$(A \cap B) \cap C \subseteq A \cap (B \cap C) $
+\end{lemma}
+\begin{proof}
+Let $x \in (A \cap B) \cap C, \ \text{show} \ x \in A \cap (B \cap C)$ \\
+By definition of intersection, $x \in (A \cap B) \ \text{and}\  x \in C
+\implies x \in A \ \text{and}\ x \in B \ \text{and}\  x \in C 
+\implies x \in A \ \text{and}\ x \in (B \cap C)
+\implies x \in A \cap (B \cap C) $.
+\end{proof}
+
+Since $A \cap (B \cap C) \subseteq (A \cap B) \cap C $ and $(A \cap B) \cap C \subseteq A \cap (B \cap C) $, we must have $=$. 
+
+\subsection*{$(ix) \enspace A \triangle B = \emptyset \iff  A = B $}
+\begin{lemma}
+$ A \triangle B \subseteq \emptyset \iff  A = B $
+\end{lemma}
+\begin{proof}
+Suppose $A = B.$ We can begin by assuming $ A \triangle B \nsubseteq \emptyset$.\\
+Let $x \in A \triangle B.$ By definition of symmetric difference, $x \in A \triangle B \implies x \in (A \setminus B) \cup (B \setminus A).$ Since $A = B, x \in (A \setminus A) \cup (B \setminus B) \implies x \in (A \cap   {^{\mathrm{c}}}{A}) \ \cup \ x \in (B \cap  {^{\mathrm{c}}}{B}) \implies x \in A $ and $x \notin A$ or $x \in B $ and $x \notin B$. Both these statements are contradictions. Thus, our assumption is false and $ A \triangle B \subseteq \emptyset \iff  A = B. $
+\end{proof}
+
+\begin{lemma}
+$\emptyset \subseteq  A \triangle B \iff  A = B $
+\end{lemma}
+\begin{proof}
+Suppose $\emptyset \nsubseteq  A \triangle B.$ This suggests $\exists \ x \in \emptyset \ |\  x \notin A \triangle B.$ There cannot exist an object $x$ in the empty set as this contradicts the very definition of the empty set, so our assumption is false and $\emptyset \subseteq  A \triangle B \iff  A = B.$ (This reaffirms the empty set is a subset of every set). 
+\end{proof}
+Since $ A \triangle B \subseteq \emptyset$ and $\emptyset \subseteq  A \triangle B \iff  A = B $, we must have $=.$
+
+\subsection*{$(x) \enspace A \cap (B \triangle C) = (A \cap B) \triangle (A \cap C)$}
+\begin{lemma}
+$A \cap (B \triangle C) \subseteq (A \cap B) \triangle (A \cap C)$
+\end{lemma}
+\begin{proof}
+Let $x \in A \cap (B \triangle C),$ show $x \in (A \cap B) \triangle (A \cap C).$\\
+By definitions of intersection and symmetric difference, $x \in A \cap (B \triangle C) \implies x \in A$ and $x \in (B \setminus C) \cup (C \setminus B) \implies x \in A$ and $\left [( x \in B \ \text{and} \ x \notin C ) \ \text{or}\ ( x \in C \ \text{and} \ x \notin B) \right].$ \\
+Noting we can rewrite $x \notin C$ and $x \notin B$ as complements of sets $C$ and $B$, we get:
+\begin{align*}
+    x \in A \ \text{and} \left [( x \in B \ \text{and} \ x \in {^{\mathrm{c}}}{C} ) \ \text{or}\ ( x \in C \ \text{and} \ x \in {^{\mathrm{c}}}{B}) \right]
+\end{align*}
+
+Seeing as set A has an intersection with $ ( x \in B \ \text{and} \ x \in {^{\mathrm{c}}}{C} ) \ \textbf{or}\ ( x \in C \ \text{and} \ x \in {^{\mathrm{c}}}{B}),$ we use the associative law for intersection (see $(ii)$) for each bracketed set, getting $ (x\in A \ \text{and} \ x \in B \ \text{and} \ x \in {^{\mathrm{c}}}{C} ) \ \text{or}\ (x \in A \ \text{and} \ x \in C \ \text{and} \ x \in {^{\mathrm{c}}}{B}) \implies (x \in A\cap B \cap {^{\mathrm{c}}}{C})\cup (x \in A\cap C \cap {^{\mathrm{c}}}{B}),$ which is equivalent to the redundant expression $(x \in A\cap B \cap A \cap {^{\mathrm{c}}}{C})\cup (x \in A\cap C \cap A \cap {^{\mathrm{c}}}{B}) \implies (x \in A \cap B$ and $x \in A \cap {^{\mathrm{c}}}{C})\cup(x \in A \cap C$ and $x \in A \cap {^{\mathrm{c}}}{B}).$ \\ \\
+If $x \in {^{\mathrm{c}}}{C}$, then $x \notin C$ (and similarly for $x \in {^{\mathrm{c}}}{B}$). This gives $(x \in A \cap B$ and $x \notin A \cap C)\cup(x \in A \cap C$ and $x \notin A \cap B).$ By definition of difference, $x \in [(A \cap B)\setminus (A \cap C)] \cup  [(A \cap C)\setminus (A \cap B)].$ By definition of symmetric difference, $x \in (A \cap B) \triangle (A \cap C).$
+\end{proof}
+\begin{lemma}
+$(A \cap B) \triangle (A \cap C) \subseteq A \cap (B \triangle C)$
+\end{lemma}
+\begin{proof}
+Let $x \in (A \cap B) \triangle (A \cap C),$ show $x \in A \cap (B \triangle C).$\\
+By definition of symmetric difference, $x \in (A \cap B) \triangle (A \cap C) \implies x \in ((A \cap B) \setminus (A \cap C)) \cup ((A \cap C) \setminus (A \cap B)) \implies [x \in (A \cap B) \ \text{and} \ x \notin (A \cap C)] \ \text{or} \ [x \in (A \cap C) \ \text{and} \ x \notin (A \cap B)].$\\ \\
+If $x \in (A \cap B) \ \textbf{and} \ x \notin (A \cap C),$ we know from the first half that $x \in B$ and $x \in A$. Using that information to interpret the second half, it must be that $\ x \notin (A \cap C) \implies x \notin C$. If $x \notin C,$ then $x \in {^{\mathrm{c}}}{C}.$ A similar argument can be made for $x \in (A \cap C) \ \text{and} \ x \notin (A \cap B).$\\\\
+Then, our current expression becomes $x \in (A \cap B \cap {^{\mathrm{c}}}{C}) \cup (A \cap C \cap {^{\mathrm{c}}}{B}) \implies (x \in A \ \text{and} \ x \in B \cap {^{\mathrm{c}}}{C}) \cup (x \in A \ \text{and}\ x \in C \cap {^{\mathrm{c}}}{B}) \implies (x \in A \ \text{and} \ x \in B \setminus C) \ \textbf{or} \ (x \in A \ \text{and}\ x \in C \setminus B).$ It is clear that $x \in A$ and either $x \in (B \setminus C)$ or $x \in (C \setminus B).$ Thus, we have $x \in A \cap [(B \setminus C) \cup (C \setminus B)].$ By definition of symmetric difference, $x \in A \cap (B \triangle C).$
+\end{proof}
+Since $A \cap (B \triangle C) \subseteq (A \cap B) \triangle (A \cap C)$ and $(A \cap B) \triangle (A \cap C) \subseteq A \cap (B \triangle C)$, we must have $=.$ 
+
+
+\subsection*{$(xi) \enspace A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$}
+\begin{lemma}
+$A \cup (B \cap C) \subseteq (A \cup B) \cap (A \cup C)$
+\end{lemma}
+\begin{proof}
+Let $x \in A \cup (B \cap C),$ show $x \in (A \cup B) \cap (A \cup C).$\\
+By definition of union, $x \in A \cup (B \cap C) \implies x \in A$ or $x \in B \cap C.$\\ Consider the first case: if $x \in A,$ then $x \in A \cup B$ and $x \in A \cup C$ are both true. Then, $x \in (A \cup B) \cap (A \cup C).$ Now, consider the second case: if $x \in B \cap C,$ then $x \in B$ and $x \in C.$ This makes $x \in A \cup B$ and $x \in A \cup C$ true, and by definition of intersection, $x \in (A \cup B) \cap (A \cup C).$
+\end{proof}
+\begin{lemma}
+$(A \cup B) \cap (A \cup C) \subseteq A \cup (B \cap C)$
+\end{lemma}
+\begin{proof}
+Let $x \in (A \cup B) \cap (A \cup C),$ show $x \in A \cup (B \cap C).$\\
+By definitions of union and intersection, $x \in (A \cup B) \cap (A \cup C) \implies (x \in A \ \text{or} \ x \in B)$ and $(x \in A \ \text{or} \ x \in C).$ In $(x \in A \ \text{or} \ x \in B), x \notin A \implies x \in B$ (and similarly for $(x \in A \ \text{or} \ x \in C)$). Therefore, if $x \notin A,$ then $x \in B \cap C \implies x \in A \ \text{or} \ x \in B \cap C \implies x \in A \cup (B \cap C).$
+\end{proof}
+Since $A \cup (B \cap C) \subseteq (A \cup B) \cap (A \cup C)$ and $(A \cup B) \cap (A \cup C) \subseteq A \cup (B \cap C),$ we must have $=.$
+
+\subsection*{$(xii) \enspace {^{\mathrm{c}}}(A \cap B) = \ {^{\mathrm{c}}}{A} \cup {^{\mathrm{c}}}{B} $}
+\begin{lemma}
+${^{\mathrm{c}}}(A \cap B) \subseteq \ {^{\mathrm{c}}}{A} \cup {^{\mathrm{c}}}{B} $
+\end{lemma}
+\begin{proof}
+Let $x \in {^{\mathrm{c}}}(A \cap B),$ show $x \in {^{\mathrm{c}}}{A} \cup {^{\mathrm{c}}}{B}.$\\
+By definition of complement,  $x \in {^{\mathrm{c}}}(A \cap B) \implies x \notin (A \cap B).$ For $x \notin (A \cap B),$ it must be true that $x \notin A$ or $x \notin B.$ Therefore, $x \in  {^{\mathrm{c}}}{A}$ or $x \in {^{\mathrm{c}}}{B} \implies x \in  {^{\mathrm{c}}}{A} \cup  {^{\mathrm{c}}}{B}.$
+\end{proof}
+
+\begin{lemma}
+${^{\mathrm{c}}}{A} \cup {^{\mathrm{c}}}{B} \subseteq \ {^{\mathrm{c}}}(A \cap B)$
+\end{lemma}
+\begin{proof}
+Let $x \in {^{\mathrm{c}}}{A} \cup {^{\mathrm{c}}}{B},$ show $x \in {^{\mathrm{c}}}(A \cap B).$\\
+By definitions of complement and union, $x \in {^{\mathrm{c}}}{A} \cup {^{\mathrm{c}}}{B} \implies x \notin A$ or $x \notin B \implies x \notin (A \cap B) \implies x \in {^{\mathrm{c}}}(A \cap B).$
+\end{proof}
+Since ${^{\mathrm{c}}}(A \cap B) \subseteq \ {^{\mathrm{c}}}{A} \cup {^{\mathrm{c}}}{B} $ and ${^{\mathrm{c}}}{A} \cup {^{\mathrm{c}}}{B} \subseteq \ {^{\mathrm{c}}}(A \cap B)$, we must have $=.$
+
+\section{Exercise 1.4.5.}
+To see why $A \times \emptyset = \emptyset \times A = \emptyset$ is true, we must understand that the Cartesian product $A \times \emptyset$ is the set of all ordered pairs in which the first coordinate comes from set $A$ and the second coordinate comes from $\emptyset$. Because there are no objects in $\emptyset$, we do not have a coordinate. Thus, there are no ordered pairs in the Cartesian product $A \times \emptyset$ (and similarly for $\emptyset \times A).$ Because there are no elements in these Cartesian products, we have the empty set $\emptyset.$ Thus, $A \times \emptyset = \emptyset \times A = \emptyset.$
+
+\section{Exercise 1.4.6.}
+\begin{proof}
+Choose any  $ (x,y)\in A\times B $, then according to definition of set multiplication $A \times B = \{ (a,b)\mid a \in A ,\space  b \in B \}$, therefore $x \in A$ and $y \in B$. Since A=B, then an element exists in A is a necessary and sufficient condition for an element to exist in B.  $x \in B$ and $y \in A$. Then, we can derive $ (x,y)\in B\times A $. Then we can see for any element that belongs to $A \times B$ belongs to $B \times A$, then according to equality of set, $A \times B = B \times A$.
+\end{proof}
+
+\section{Exercise 1.6.2.}
+
+\begin{proof} Show that R is an equivalence relation.
+
+\begin{definition}
+A relation on a set is called an equivalence relation if it is reflexive, symmetric, and transitive.
+We must show that the set is reflexive, symmetric, and transitive in order to prove that R is an equivalence relation. 
+\end{definition}
+For all a $\in X, (a, a) \in$ R. From this statement, it is true that a $\sim a$ for all values a. Therefore, R is reflexive. For a, b, c $\in X$, if (a, b) and (b, c) $\in R$, then c, a $\in R$.
+
+From this statement, a $\sim b$ and b $\sim c$, therefore a $\sim c$. This demonstrates that R is transitive. We must now prove that R is symmetric in order to demonstrate that R is an equivalence relation.
+
+Because a $\sim a$ and a $\sim b$, we must show that b $\sim a$ to demonstrate that R is symmetric. If c $\sim a$ and b $\sim c$, this implies that b $\sim a$. 
+
+Therefore, R is symmetric in addition to being reflexive and transitive.
+
+Thus, by satisfying Definition 4.1, R is a equivalence relation.
+\end{proof}
+\section{Exercise 1.6.5.}
+\begin{proof}
+Show that the relation is an equivalence relation.
+Since a - a = 0, a $\sim$ a for all a $\in \mathbb{Z}$. Hence, this is reflexive.
+As for symmetry:
+\begin{center}
+Suppose that $\frac{a-b}{k}$ where k $\in \mathbb{Z}$. 
+Solve for k' such that k' $\in \mathbb{Z}$ and
+$\frac{b-a}{n}$ = k'
+\\
+$\frac{b-a}{n}$ = $\frac{(a-b)}{n}$ = -k
+\\
+Since -k $\in \mathbb{Z}$, let k' = -k.
+\\
+\end{center}
+Thus, the relation is symmetric.
+\\
+To show transitivity, 
+\\
+Suppose that $\frac{a-b}{k_1}$ and $\frac{b-c}{k_2}$, where $k_1, k_2$ $\in \mathbb{Z}$.
+\begin{center}
+    $\frac{a-c}{n}$ = $k_3$ where $k_3$ $\in \mathbb{Z}$
+    $\frac{a-c}{n}$ = $\frac{a-b+b-c}{n}$ = $k_1$ + $k_2$
+\end{center}
+Since $k_1 + k_2$ $\in \mathbb{Z}$, $k_3 = k_1 + k_2 $
+\\
+Thus, the relation is transitive, and therefore an equivalence relation.
+\end{proof}
+\section{Exercise 1.6.10.}
+%Aditya Krishna
+If $c|a$, then we can say that $a=k_1c$, for some $k_1\in\mathbb{Z}$. If $c|b$, then we can also say that $b=k_2c$, for some $k_2\in\mathbb{Z}$. Then it follows that for some integers $s,t\in\mathbb{Z}$, we have $(sa+tb)=(sk_1c+tk_2c)$. Pulling out the $c$, we get $c(sk_1+tk_2)$. It follows then that $c|c(sk_1+tk_2)$, for some $sk_1+tk_2\in\mathbb{Z}$. As $(sk_1c+tk_2c) = (sa+tb)$ then we can see that $c|(sa+tb)$.
+
+\section{Exercise 1.6.13.}
+%Aditya Krishna
+\begin{enumerate}
+    \item $C(a) = \{b \in X | b \sim a\}$, and since $a\in X$, and $a\sim a$, $a$ must also be contained in the set $C(a)$, so we have $a\in C(a)$.
+    \item 
+    
+    To show that $C(a)=C(b)$, we need $C(a)\subseteq C(b)$, and $C(b)\subseteq C(a)$.
+
+    Let $C(a)=\{b_1\in X:b_1\sim a\}$, and $C(b)=\{b_2\in X:b_2\sim b\}$. Let $x$ be an arbitrary element of $C(a)$. Then $x\sim a$, and because $a\sim b$, we have $x\sim b$. So every element of $C(a)$ is contained within $C(b)$, or $C(a)\subseteq C(b)$. Let $y$ be an arbitrary element of $C(b)$. Then $y\sim b$, and because $b\sim a$, we have $y\sim a$. So every element of $C(b)$ is contained within $C(a)$, or $C(b)\subseteq C(a)$. So it follows that $C(a)=C(b)$.
+        \item 
+        \item $\bigcup_{a \in X} C(a) = X$. Because $a\in C(a)$, then $\{a\}\subseteq C(a)$. So we have $\bigcup\{a\}\subseteq\bigcup C(a)$, and the union of all $\{a\}$, for $a\in X$, will just be $X$. So $X\subseteq \bigcup C(a)$, but because $C(a)\subseteq X$, we have $\bigcup C(a)=X$. 
+
+
+\end{enumerate}
+
+\section{Exercise 1.6.15.}
+\begin{proof}
+To proof equivalence relation, three properties must be proved separately.
+\\$\boldsymbol{ 1. reflexive \enspace property}$
+\\ For any $(x,y) \in F$ , $x,y \neq 0$
+\\ Since $x/y=x/y$,
+therefore \{ (x,y),(x,y)\} $\in \enspace \sim$ 
+\\  $\boldsymbol{ 2. symmetric \enspace property}$
+\\  For any $(x1,y1), (x2,y2) \in F$ , $xi,yi \neq 0$
+\\If \{ (x1,y1),(x2,y2)\} $\in \enspace \sim$ 
+\\ then x1/y1 = x2/y2
+\\ x2/y2=x1/y1 
+\\Therefore, \{ (x2,y2),(x1,y1)\} $\in \enspace \sim$ 
+\\  $\boldsymbol{ 3. transitive \enspace property}$
+\\  For any $(x1,y1), (x2,y2),(x3,y3) \in F$ , $xi,yi \neq 0$
+\\If \{ (x1,y1),(x2,y2)\} $\in \enspace \sim$ ,
+ and\{ (x2,y2),(x3,y3)\} $\in \enspace \sim$ 
+ \\then x1/y1=x2/y2, x2/y2=x3/y3
+ \\then x1/y1=x3/y3
+ \\Therefore, \{(x1,y1),(x3,y3)\} $\in \enspace \sim$ 
+ \\
+ \\since these three properties are met, $\sim $ operation is an equivalence relation. 
+
+\end{proof}
+
+\section{Non-Textbook Exercise}
+
+Express each of the following statements as a conditional statement in "if-then" form. \\ \\
+
+(a) Every odd number is prime.
+\\Conditional: If a number is odd, then the number is prime.
+\\Negation: There is an odd number that is not prime.
+\\Converse: If a number is prime, then the number is odd.
+\\Contrapositive: If a number is not prime, then the number is not odd. \\ \\
+
+(b) Passing the test requires solving all the problems.
+\\Conditional: If the test will be passed, then all the problems must be solved.
+\\Negation: The test is passed without solving all the problems.
+\\Converse: If all the problems are solved, then the test will be passed.
+\\Contrapositive: If not all the problems are solved, then the test will not be passed. \\ \\
+
+(c) Being first in line guarantees getting a good seat.
+\\Conditional: If someone is first in line, then they will get a good seat.
+\\Negation: Someone is first in line and does not get a good seat.
+\\Converse: If someone gets a good seat, then they will have been first in line.
+\\Contrapositive: If someone does not get a good seat, then they will not have been first in line. \\ \\
+
+(d) I get mad whenever you do that.
+\\Conditional: If you do that, then I will get mad. \\ \\
+
+(e) I won't say that unless I mean it.
+\\Conditional: If I say that, then I mean it.
+
+\section{Exercise 1.7.9.}
+\begin{proof}
+To prove the pigeonhole principle, we take the negative proposition of the principle and then prove it wrong.
+\\Therefore,If f:A$\to$ B is a function, there are only one distinct element of A that correspond to the same element of B.
+\\Since f(a)=f(b) implies a=b for any a,b$\in$A, f is injective. 
+\\Therefore $\abs A $ $\leq$ $\abs b$,  n$\leq$m.
+\\However, in initial condition n$>$m.
+\\The contradiction is found and the negative proposition is wrong. Therefore, the pigeonhole principle is valid. 
+
+
+\end{proof}
+
+\section{Exercise 1.7.15.}
+For a given function f, determine if the f is surjective, injective, or bijective.
+
+\subsection*{$(i) \enspace f: \mathbb{N} \to \mathbb{N} , f(n) = 2n $}
+f(n) is not surjective.
+\begin{definition}
+For a given function $f(A) = \{ b \in B \ | \ \exists a \in A \ with \ f(a) = b \} $
+\\ f is surjective if f(A) = B, where B is the range of f.
+\end{definition}
+For the given function f(n), 3 $\notin$ f(\mathbb{N}).
+\\However, 3 \in \mathbb{N}, where \ \mathbb{N} \ is \ also \ the \ range \ of f(n).
+\\Since \ 3 \in \mathbb{N} \ and \ 3 \notin f( \mathbb{N} ), \ \mathbb{N} \nsubseteq f( \mathbb{N} ). \ Therefore, \ \mathbb{N} \neq f( \mathbb{N} ).
+\\f( \mathbb{N} ) \ is \ not \ equal \ to \ its \ range, \ and \ as \ such, \ this \ function \ is \ not \ surjective. \\ \\
+
+f(n) is injective.
+\begin{definition}
+For a given function $f(A) = \{ b \in B \ | \ \exists a \in A \ with \ f(a) = b \} $
+\\ f is injective if for any $a,a' \in A, if \ f(a) = f(a'), \ then \ a = a'$.
+\end{definition}
+\exists \ x,y \in $\mathbb{N}$
+\\ Assuming \ f(x) = f(y)
+\\ 2x = 2y
+\\ x = y
+\\Thus, \ f(n) \ is \ injective. \\ \\
+
+f(n) is not bijective. If a function is bijective, then the function is surjective. f(n) is not surjective and thus is not bijective.
+
+\subsection*{$(ii) \enspace f: \mathbb{Z} \to \mathbb{Z} , f(n) = n + 6 $}
+f(n) is surjective.
+\\ n \in \mathbb{Z},
+\\ y = n + 6
+\\ n = y - 6
+\\ y \in \mathbb{Z}
+\\ y = f(n), \ therefore \ f(\mathbb{Z}) \ equals \ the \ range \ \mathbb{Z}. \ Thus, \ f \ is \ a \ surjective \ function. \\ \\
+
+f(n) is injective.
+\\ \exists \ x,y \in \mathbb{Z}
+\\ Assuming \ f(x) = f(y)
+\\ x + 6 = y + 6
+\\ x = y
+\\ Thus, \ f(n) \ is \ injective. \\ \\
+
+f(n) is bijective. A function is bijective if and only if the function is surjective and injective. f(n) is surjective and injective, thus f(n) is bijective.
+
+\subsection*{$(iii) \enspace f: \mathbb{N} \to \mathbb{Q} , f(n) = n $}
+f(n) is not surjective.
+\\ \forall n \in \mathbb{N}
+\\f(n) \in \mathbb{N}, \  f($\mathbb{N}$) \subseteq \mathbb{N}
+\\ \frac{1}{3} \in \mathbb{Q}
+\\ \frac{1}{3} \notin \mathbb{N} \implies \frac{1}{3} \notin f($\mathbb{N}$)
+\\ If \ \frac{1}{3} \in \mathbb{Q} \ and \ \frac{1}{3} \notin f($\mathbb{N}$), \ then \ \mathbb{Q} \nsubseteq f($\mathbb{N}$).
+\\ Therefore \ f($\mathbb{N}$) \neq \mathbb{Q}
+\\ As \ such, \ f($\mathbb{N}$) \ does \ not \ equal\ the \ range \ \mathbb{Q}, \ therefore \ the \ function \ is \ not \ surjective. \\ \\
+
+f(n) is not injective.
+\\ \exists \ x,y \in \mathbb{N}
+\\ Assuming \ f(x) = f(y)
+\\ x = y
+\\ Thus, \ f(n) \ is \ injective. \\ \\
+
+f(n) is not bijective. If a function is bijective, then the function is surjective. f(n) is not surjective and thus is not bijective.
+
+\subsection*{$(iv) \enspace f: \mathbb{Q}_{+} \to \mathbb{N} , f(\frac{a}{b}) = a_{n}...a_{2}a_{1}db_{m}...b_{2}b_{1} $}
+Where $\mathbb{Q}_{+}$ is the set of rational numbers written as base 10 fractions and \mathbb{N} is the set of natural numbers but written in base 11. The output of f is one value whose digits are arranged in the above detailed order. \\ \\
+
+f($\frac{a}{b}$) is not surjective. Since $\mathbb{Q}_{+}$ \ is \ always \ positive, \frac{a}{b} > 0.
+\\ 1 \in \mathbb{N}
+\\ 1 \notin \ f($\mathbb{Q}_{+}$)
+(Since the smallest number f could yield would be 1d1 (a and b both must be non-0 and result in the form adb, if a or b are larger than 9 then the outcome will be in the base 11 thousands; the smallest possible outcome must use only single digit a,b values and thus will use the smallest value possible, 1), or 232 in base 10, 1 is not contained in the set of possible elements of $f{mathbb{Q}_{+}}$.)
+\\ Therefore, \ \mathbb{N} \nsubseteq \ f($\mathbb{Q}_{+}$). \ f($\mathbb{Q}_{+}$) \neq \ \mathbb{N}.
+\\ f($\mathbb{Q}_{+}$) \ is \ not \ equal \ to \ the \ range\ of \ the \ function \ and \ as \ such \ the \ function \ is \ not \ surjective. \\ \\
+
+f($\frac{a}{b}$) is injective.
+\\ \exists \frac{v}{w}, \frac{x}{y} \ \in $\mathbb{Q}_{+}$
+\\ Assuming \ f($\frac{v}{w}$) = f($\frac{x}{y}$)
+\\ vdw = xdy
+\\ Since \ vdw = xdy, \ v = x, \ w = y, \ $\frac{v}{w}$= $\frac{x}{y}$.
+\\ Therefore, \ f \ is \ injective. \\ \\
+
+f($\frac{a}{b}$) is not bijective. If a function is bijective, then the function is surjective. f($\frac{a}{b}$) is not surjective and thus is not bijective.
+
+\subsection*{$(v) \enspace f: \mathbb{R} \to \mathbb{N} , f(x) = a_{-3} $}
+For the decimal expansion of any rational number $a_{n}...a_{2}a_{1}.a_{-1}a_{-2}a_{-3}a_{-4}...a_{m}$. \\ \\
+f(x) is not surjective. $a_{-3}$ is contained in the set of digits $\{0,1,2,3,4,5,6,7,8,9\}$. Therefore, f($\mathbb{R}$)= $\{0,1,2,3,4,5,6,7,8,9\}$.
+\\ 11 \in \mathbb{N}, \ 11 \notin \ f($\mathbb{R}$)
+\\ Therefore, \ \mathbb{N} \nsubseteq f($\mathbb{R}$) \implies \mathbb{N} \neq f($\mathbb{R}$).
+\\ f($\mathbb{R}$) \ does \ not \ equal \ the \ range \ of \ the \ function \ \mathbb{N}, \ therefore \ the \ function \ is \ not \ surjective. \\ \\
+
+f(x) is not injective.
+\\ \exists \ x = 1.001, y = 2.001 \in \mathbb{R}
+\\ Assuming \ f(x) = f(y)
+\\ f(1.001) = 1, f(2.001) = 1 \implies f(1.001) = f(2.001)
+\\ 1.001 \neq 2.001
+\\ x \neq y 
+\\ Therefore, \ f(x) \ is \ not \ injective. \\ \\
+
+f(x) is not bijective. If a function is bijective, then the function is surjective and injective. f(x) is neither surjective nor injective and thus is not bijective.
+
+\end{document}

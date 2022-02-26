@@ -1,0 +1,205 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{inputenc}
+\usepackage{geometry} 
+\usepackage{soul}
+\usepackage{amsmath,amsthm,amssymb,amscd,epsfig,url}
+\usepackage{fullpage}
+\usepackage{times}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\usepackage{xcolor}
+\def\ZZ{{\mathbb Z}}
+\def\QQ{{\mathbb Q}}
+\def\RR{{\mathbb R}}
+\def\TT{{\mathcal{C} T}}
+\def\KK{{\mathcal{C} K}}
+\newcommand{\hus}{\hfill\break}
+\newcommand{\bull}{\textbullet\;\;}
+\def\iso{{\operatorname{\ \approx \ }}}   % isomorphism
+\def\im{{\operatorname{im}}}              % image
+\def\Hom{{\operatorname{Hom}}}           % homomorphisms
+\def\line{{\operatorname{line} \,}}       % line graph
+\def\sd{{\operatorname{sd \,}}}           % first edge subdivision graph
+\def\coker{{\operatorname{coker}}}        % cokernel
+\def\lcm{{\operatorname{lcm}}}             % least common multiple
+\newcommand{\gcdd}{\gamma}              
+\def\del{{\partial}}                      % signed incidence matrix
+\def\<{{\langle}} \def\>{{\rangle}}       % Inner product
+\def\ZC{{Z^\#}}                           % cycle space
+\setlength{\textheight}{9in}               
+%\setlength{\textwidth}{6in}               % width of text
+%\setlength{\oddsidemargin}{0in}           % odd page left margin
+%\setlength{\evensidemargin}{0in}          % even page left margin 
+
+
+\title{%
+  Problem Set 5 \\
+  \large Amatullah Mir}
+\author{CMSC 27100: Discrete Mathematics}
+\date{Assigned February 10, Due February 25}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\section*{Question 0: Collaboration}
+Did you collaborate with anyone on this problem set? If so, who did you collaborate with? \\ \textcolor{red}{No collaboration - this problem set was completed on my own.}
+\section{Problems for February 9 (Lecture 13)}
+\section*{Problem 1: Combinatorics Questions (25 points)}
+\begin{enumerate}
+\item[(a)] If you have $3$ different hats, $5$ different shirts, and $4$ different pairs of pants, how many different outfits can you wear with one hat, one shirt, and one pair of pants? \\
+\\ \textcolor{red}{3 different hats = 3 different possibilities.}\\
+\textcolor{red}{5 different shirts = 5 different possibilities.}\\
+\textcolor{red}{4 different pants = 4 different possibilities.}\\
+\textcolor{red}{$3 \cdot 5 \cdot 4 = 60$ different outfits.}
+
+\item[(b)] How many ways are there to choose a lottery ticket where you pick a sequence of $4$ distinct numbers from $1$ to $15$? Note that order matters so the ticket $(3,4,14,9)$ is different from the ticket $(9,4,3,14)$.
+\\ \textcolor{red}{$$\frac{n!}{(n-r)!} = \frac{15!}{(15-4)!} = \frac{15!}{11!} = 15 \cdot 14 \cdot 13 \cdot 12 = 32,760$$ There are 32,760 ways to choose four distinct numbers between 1 and 15, considering the order of the ticket.}
+
+\item[(c)] How many natural numbers $n \in [300]$ are there such that $n$ is not divisible by $6$ and $n$ is not divisible by $14$? Show your work. \\
+\\ \textcolor{red}{The number of natural numbers $n \in [300]$ = $300-$ [the number of multiples of 6] - [the number of multiples of 14] + [the number of common multiples of 14 and 6.]} \\
+\\ \textcolor{red}{Multiples of 6: 6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72, 78, 84, 90, 96, 102, 108, 114, 120, 126, 132, 138, 144, 150, 156, 162, 168, 174, 180, 186, 192, 198, 204, 210, 216, 222, 228, 234, 240, 246, 252, 258, 264, 270, 276, 282, 288, 294, 300. \\ Cardinality = 50} \\
+\\ \textcolor{red}{Multiples of 14: 14, 28, 42, 56, 70, 84, 98, 112, 126, 140, 154, 168, 182, 196, 210, 224, 238, 252, 266, 280, 294. Cardinality = 21.} \\
+\\ \textcolor{red}{Common multiples of 6 and 14: 42, 84, 126, 168, 210, 252, 294. Cardinality = 7.}
+\\ \textcolor{red}{$$300 - 50 - 21 + 7 = 236$$}
+\\ \textcolor{red}{There are 236 natural numbers n $\in [300]$ such that $n$ is not divisible by 6 and n is not divisible by 14.}
+\item[(d)] How many natural numbers $n \in [200]$ are there such that $n | 168$ or $n | 189$? Show your work. \\
+\\ \textcolor{red}{There are 16 numbers n $\in [200]$ that are multiples of 168, namely 1, 2, 3, 4, 6, 7, 8, 12, 14, 21, 24, 28, 42, 56, 84, and 168.} \\
+\\ \textcolor{red}{There are 8 numbers n $\in [200]$ that are multiples of 189, namely 1, 3, 7, 9, 21, 27, 63, and 189.} \\
+\\ \textcolor{red}{The total numbers n $\in [200]$ that divide 168 or 189 are $16 + 8 = 24.$  \\
+\\ $24 - 4$ (there are four common divisors between 168 and 189) $ = 20$. \\
+There are 20 natural numbers such that $n | 168$ or $n | 189$.}
+
+\item[(e)]How many $7$ bit strings are there which have $3$ consecutive zeros? For example, $1100001$ and $0001000$ would be two such strings but $1100101$ would not be such a string as it does not have $3$ consecutive zeros. Show your work.\\
+\\ \textcolor{red}{For strings of length n, $a_n = a_{n-1}+a_{n-2}+a_{n-3}+2^{n-3}$. \\For $n = 7,$ then we have $0,0,0,1,3,8,20,47.$ \\ Answer = 47.}\\
+\\
+Hint: It may help to split things into cases based on the position of the first $3$ consecutive zeros.
+\\ \textcolor{red}{}
+\end{enumerate}
+\section{Problems for February 11 (Lecture 14)}
+\section*{Problem 1: More Combinatorics Questions (20 points)}
+Solve the following combinatorics questions and show your work. For your answers, you should give the expression for the answer and then show how to evaluate it. For example, if the answer was $\binom{6}{3}$ you could write $\binom{6}{3} = \frac{6*5*4}{3*2*1} = \frac{120}{6} = 20$ or $\binom{6}{3} = \frac{6!}{3!3!} = \frac{720}{6*6} = 20$. If you show which terms cancel or partially cancel, this is even better as it is an effective way to evaluate binomial coefficients by hand. For example, we can write $\binom{6}{3} = \frac{6*5*4}{3*2*1} = \frac{6}{3*2}*5*4 = 20$
+\begin{enumerate}
+\item[(a)] How many subsets of $[7] = \{1,2,3,4,5,6,7\}$ are there which have exactly $4$ elements?
+\\ \textcolor{red}{$$\frac{n!}{(k!)(n-k)!} = \frac{7!}{(4!)(3)!} = \frac{7 \cdot 6 \cdot 5}{3 \cdot 2 \cdot 1} = 35. $$ \\ Answer: 35 subsets.}
+
+\item[(b)] How many five digit numbers are there such that each digit is smaller than the previous digit? For example, $54321$ and $97420$ are two such numbers but $43211$ and $79630$ are not.
+\\ \textcolor{red}{$$\frac{10!}{(5!)(5!)} = \frac{10 \cdot 9 \cdot 8 \cdot 7 \cdot 6}{5 \cdot 4 \cdot 3 \cdot 2 \cdot 1} = \frac{30240}{120} = 252.$$ \\ There are 252 five digit numbers such that each digit is smaller than the previous.}
+
+\item[(c)] How many ways are there to rearrange the letters of the word ``redeemer''?
+\\ \textcolor{red}{$$\frac{8!}{4!2!1!1!} = \frac{8 \cdot 7 \cdot 6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1}{4 \cdot 3 \cdot 2 \cdot 1 \cdot 1 \cdot 1} = \frac{40,320}{48} = 840$$ where 8 is the total number of possible orderings, 4 is the repetition of "e," 2 is the repetition of "r," and 1! 1! accounts for "m" and "d."}
+\item[(d)] How many ways are there to divide up $9$ people into three teams of $3$? Note that the order of the three teams does not matter, i.e. if the people are $A$, $B$, $C$, $D$, $E$, $F$, $G$, $H$, and $I$ then having the teams be $\{A,B,C\}$, $\{D,E,F\}$, $\{G,H,I\}$ is the same as having the teams be $\{D,E,F\}$, $\{G,H,I\}$, and $\{A,B,C\}$.
+\\ \textcolor{red}{$$\frac{n!}{(k!)(n-k)!} = \frac{9!}{(3!) \cdot 6!} = \frac{9 \cdot 8 \cdot 7 \cdot 6 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1}{(3 \cdot 2 \cdot 1) \cdot 6 \cdot 4 \cdot 5 \cdot 4 \cdot 3 \cdot 2 \cdot 1} = \frac{362,880}{720 \cdot 6} = 84$$ \\ 84 ways to divide 9 people into groups of three.}
+\end{enumerate}
+
+\section*{Problem 2: Using the Binomial Theorem (15 points)}
+\begin{enumerate}
+\item[(a)] Expand out $(2x - 1)^6$ using the Binomial Theorem. Your final answer should give the coefficient for each power of $x$. For example, \\
+$(x+4)^3 = \sum_{j=0}^{3}{\binom{3}{j}4^{j}x^{3-j}} = x^{3} + 3*4*x^2 + 3*16*x + 64 = x^{3} + 12x^2 + 48x + 64$
+\\ \textcolor{red}{$$(2x-1)^6 = \sum_{j=0}^{6}{\frac{6!}{(6-k)!k!}} \cdot (2x)^{6-j} \cdot (-1)^j: $$}
+\\ \textcolor{red}
+{$$\frac{6!}{(6-0)!(0!)} \cdot (2x)^{(6-0)} \cdot (-1)^0 + \frac{6!}{(6-1)!(1!)} \cdot (2x)^{(6-1)} \cdot (-1)^1 + \frac{6!}{(6-2)!(2!)} \cdot (2x)^{(6-2)} \cdot (-1)^2 + $$}
+\\ \textcolor{red}{$$\frac{6!}{(6-3)!(3!)} \cdot (2x)^{(6-3)} \cdot (-1)^3 + \frac{6!}{(6-4)!(4!)} \cdot (2x)^{(6-4)} \cdot (-1)^4 + \frac{6!}{(6-5)!(5!)} \cdot (2x)^{(6-5)} \cdot (-1)^5 +$$}
+\\ \textcolor{red}{$$\frac{6!}{(6-6)!(6!)} \cdot (2x)^{(6-6)} \cdot (-1)^6 = (1 \cdot (2x)^6 \cdot (-1)^0) + 
+(6 \cdot (2x)^5 \cdot (-1)) + 
+(15 \cdot (2x)^4 \cdot (-1)^2) +
+(20 \cdot (2x)^3 \cdot (-1)^3) +$$}
+\\ \textcolor{red}{$$
+(15 \cdot (2x)^2 \cdot (-1)^4) + 
+(6 \cdot (2x)^1 \cdot (-1)^5) + 
+(1 \cdot (2x)^1 \cdot (-1)^6) =$$ }
+\\ \textcolor{red}{$$64x^6-192x^5+240x^4-160x^3+60x^2-12x+1$$}
+\end{enumerate}
+\begin{enumerate}
+
+\item[(b)] Consider the sum $\sum_{j=0}^{n}{\binom{n}{j}(-3)^{j}}$. For example, if $n = 1$ then this sum is $(1*1 - 1*3) = -2$, if $n = 2$ then this sum is $1*1 - 2*3 + 1*9 = 4$, and if $n = 3$ then this sum is $1*1 - 3*3 + 3*9 - 1*27 = -8$. What is $\sum_{j=0}^{n}{\binom{n}{j}(-3)^{j}}$ in terms of $n$? Show that your answer is correct using the Binomial Theorem.
+\\ \textcolor{red}{$$(x+y)^n = \sum_{j=0}^{n}{\binom{n}{j}x^{j}y^{n-j}} = (-3+1)^n = \sum_{j=0}^{n}{\binom{n}{j}(-3)^{j}1^{n-j}}$$
+\\ Thus, $\sum_{j=0}^{n}{\binom{n}{j}(-3)^{j}}$ is $(-2)^n$}
+
+\item[(c)] What is the coefficient of $x^4{y^2}z$ in $(x + y + z)^7$?
+\\ \textcolor{red}{$$\frac{7!}{4!2!1!} = 105$$}
+\end{enumerate}
+
+\section{Problems for February 14 (Lecture 15)}
+\section*{Problem 1: Photo Arrangements (10 points)}
+A wedding photographer is arranging $6$ people, including the bride and groom, in a line to take photos. How many ways are there to arrange the people so that the bride is next to the groom? How many ways are there to arrange the people so that the bride is not next to the groom? How many ways are there to arrange the people so that the bride is somewhere to the left of the groom?\\
+Hint: A little bit of casework is needed, but not much. \\
+
+\\ \textcolor{red}{(a) BGOOOO, OBGOOO, OOBGOO, OOOBGOO, OOOOBG = 5 outcomes. We can multiply this by 2 to account for switched groom-bride arrangement (GBOOOO, OGBOOO, OOGBOO, OOOGBO, OOOOGB) represents an arbitrary guest, but they are accounted for by 4! So the total number of arrangements is $5 \cdot 2 \cdot 4! = 240$ arrangements.}
+
+\\ \textcolor{red}{(b) $6!$ (total number of outcomes) - $240 = 480$ arrangements.}
+
+\\ \textcolor{red}{(c) $720 \cdot 0.5 = 360$ arrangements.}
+
+\section*{Problem 2: Even More Combinatorics Questions (15 points)}
+Solve the following combinatorics questions and show your work. For your answers, you should give the expression for the answer and then show how to evaluate it. You should also briefly explain how you got your expression.
+\begin{enumerate}
+
+\item[(a)] If a country earns a total of $16$ medals at the Winter Olympics, how many possibilities are there for how many gold medals, silver medals, and bronze medals that country earned? \\
+\\ \textcolor{red}{15 choose 2: $$ \frac{(15)!}{2!(15-2)!} = \frac{15!}{2! \cdot 13!} = \frac{15 \cdot 14}{2} = 105$$ There are 105 possibilities.}
+
+\item[(b)] How many four digit numbers are there such that each digit is equal to or smaller than the previous digit? For example, $7111$ and $9883$ are two such numbers but $8453$ and $5202$ are not.
+\\ \textcolor{red}{$$ n = 10, r = 4: \binom{n+r-1}{r-1} = \frac{13}{3} = \frac{13 \times 12 \times 11}{3 \times 2 \times 1} = \frac{1716}{6} = 286$$}
+\\ \textcolor{red}{The possibility of 0000 = 1 outcome.}
+\\ \textcolor{red}{$$286-1=285$$}
+\textcolor{red}{285 numbers.}
+
+\item[(c)] If you have $12$ hours to finish four projects, how many ways are there to divide up your time among the four projects so that you spend a whole number of hours on each project and you spend at least $1$ hour on each project? \\
+\\ \textcolor{red}{11 choose 3: $$ \frac{(11)!}{3!(11-3)!} = \frac{11!}{3! \cdot 8!} = \frac{11 \cdot 10 \cdot 9}{3 \cdot 2 \cdot 1} = \frac{990}{6} = 165.$$ There are 165 possibilities.}
+
+Note: Only the total amount of time spent on each project matters here.
+\end{enumerate}
+\section{Problems for February 16 (Lecture 16)}
+\section*{Problem 1: Combinatorics Proofs (15 points)}
+\begin{enumerate}
+\item[(a)] 5 points: Show that for all natural numbers $n$ and $k$ such that $1 \leq k \leq n-1$, 
+\[
+\binom{n-1}{k-1}\binom{n}{k+1}\binom{n+1}{k} = \binom{n-1}{k}\binom{n}{k-1}\binom{n+1}{k+1}
+\]
+\\ \textcolor{red}{Proof by algebraic manipulation.  \[\binom{n-1}{k-1}
+\binom{n}{k+1}
+\binom{n+1}{k} = 
+\binom{n-1}{k}
+\binom{n}{k-1}
+\binom{n+1}{k+1}
+\] is equal to the following expression:
+\[\frac{(n-1)!}{(n-1-k+1)!(k-1)!}
+\frac{(n)!}{(n-k-1)!(k+1)!}
+\frac{(n+1)!}{(n+1-k)!(k)!} = \]
+\[ \frac{(n-1)!}{(n-1-k)!(k)!}
+\frac{(n)!}{(n-k+1)!(k-1)!}
+\frac{(n+1)!}{(n+1-k-1)!(k+1)!}
+\] 
+These terms are being multiplied: the numerator of the left hand side of the expression is equal to the right. The denominators are equal as well, since \\ the denominator on the left hand side: $$(n-k)!(k-1)!(n-k-1)!(k+1)!(n-k+1)!(k!)$$ \\ and the denominator on the right hand side: $$(n-1-k)!(k)!(n-k+1)!(k-1)!(n-k)!(k+1)!$$
+Therefore, \[
+\binom{n-1}{k-1}\binom{n}{k+1}\binom{n+1}{k} = \binom{n-1}{k}\binom{n}{k-1}\binom{n+1}{k+1}
+\] }
+
+
+
+\item[(b)] 10 points: Show that for all non-negative integers $k,m,n$ such that $k \leq m \leq n$, 
+\[
+\sum_{j=0}^{k}{\binom{m}{j}\binom{n}{k-j}} = \binom{n+m}{k}
+\]
+Deduce that for all non-negative integers $n$, 
+\[
+\sum_{j=0}^{n}{{\binom{n}{j}}^2} = \binom{2n}{n}
+\]
+Hint: Consider choosing a subset of $[n+m]$ of size $k$ by choosing which of the first $m$ elements to take and then choosing which of the last $n$ elements to take. \\
+\\ \textcolor{red}{\underline{\textbf{First part:}} Proof. If there is a group of m red balls and n green balls. From this, a subset of k balls can be formed represented by the following expression: $$\binom{n+m}{k}$$}
+\\ \textcolor{red}{It is also represented by the sum of all possible values of k, from the number of subgroups of k red balls and k-j green balls. We have: $$\sum_{j=0}^{k}{\binom{m}{j}\binom{n}{k-j}} = \binom{n+m}{k}$$}
+
+\\ \textcolor{red}{\underline{\textbf{Second part:}} Proof. We want to show that $$\binom{n}{0}^2 + \binom{n}{1}^2 + \binom{n}{2}^2 + ... + \binom{n}{n}^2 = \binom{2n}{n}^2$$}
+\textcolor{red}{$$\sum_{j=0}^{2n}{\binom{2n}{j}x^j = (1+x)^{2n}} = \sum_{j=0}^{n}{\binom{n}{j}x^j}\sum_{j=0}^{n}{\binom{n}{j}x^j}$$ On the left hand side, the coefficient of $x^j$ is $$\binom{2n}{n}$$ and the right hand is $$\sum_{j=0}^{n}{\binom{n}{j}\binom{n}{j} = \sum_{j=0}^{n}{\binom{n}{j}^2}}$$ Thus, $$\sum_{j=0}^{n}{{\binom{n}{j}}^2} = \binom{2n}{n}$$}
+
+\end{enumerate}
+\end{document}

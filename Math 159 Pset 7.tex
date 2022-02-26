@@ -1,0 +1,277 @@
+
+
+\documentclass[12pt]{article}
+
+
+%----------Packages----------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{amsrefs}
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage[all]{xy}
+\usepackage[mathcal]{eucal}
+\usepackage{verbatim}  %%includes comment environment
+\usepackage{fullpage}  %%smaller margins
+\usepackage{hyperref}
+\usepackage{setspace}
+\onehalfspacing
+%----------Commands----------
+
+%%penalizes orphans
+\clubpenalty=9999
+\widowpenalty=9999
+
+%% bold math capitals
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+\renewcommand{\phi}{\varphi}
+%\renewcommand{\emptyset}{\O}
+
+\providecommand{\abs}[1]{\lvert #1 \rvert}
+\providecommand{\norm}[1]{\lVert #1 \rVert}
+\providecommand{\x}{\times}
+\providecommand{\ar}{\rightarrow}
+\providecommand{\arr}{\longrightarrow}
+
+
+%----------Theorems----------
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{nondefinition}[theorem]{Non-Definition}
+\newtheorem{exercise}[theorem]{Exercise}
+
+\numberwithin{equation}{subsection}
+
+
+
+\begin{document}
+
+\pagestyle{plain}
+
+
+%%---  sheet number for theorem counter
+%\setcounter{section}{1}   
+
+\begin{center}
+{\large Math 15910 Assignment 7} \\ 
+{\medium Amatullah Mir} 
+\vspace{.1 in}  
+\end{center}
+\section{Exercise 1}
+\textbf{Use the Monotone Convergence Theorem to prove that if we define $e_{n}$ := ($1+1/n)^n$ then $(e_{n})$ converges. You may look up and use the Binomial Theorem.}
+
+\begin{proof} We define the Monotone Convergence Theorem as follows.
+\begin{definition}
+If a series is bounded and monotone, then it converges.
+\end{definition}
+If we apply the Binomial Theorem:
+\begin{center}
+(1 + $\frac{1}{n})^n$ = 1 + 1 + $\frac{1-\frac{1}{n}}{2!}$} + $\frac{(1-\frac{1}{n})({1-\frac{2}{n}})}{3!}$}
+\\
+$\leq$ 1 + 1 + $\frac{1}{2}$ + $\frac{1}{6}$ + ...
+\\
+$<$ 1 + 1 + $\frac{1}{2}$ + $\frac{1}{4}$ + $\frac{1}{8}$ ... $\leq$ 3.
+
+\end{center}
+From this, we see that $e_{n}$ is increasing and bounded above by 3. It is increasing because each of $e_{n}$'s terms are smaller than the next terms when expanding $e_{n+1}$. Therefore, $e_{n}$ is convergent.
+\end{proof}
+\section{Exercise 2}
+\textbf{If ($x_{n}$) is a convergent sequence, prove that it is Cauchy.}
+\begin{proof} ($x_{n}$) is a convergent sequence. Let the limit of ($x_{n}$) = x.
+\\
+Let $\epsilon$ $>$ 0. There exists N $\in$ $\mathbb{N}$ such that for all n $\geq$ N,
+\begin{center}
+    $| x_{n} - x |$ $<$ $\epsilon/2$
+\end{center}
+By the triangle inequality, for all y, z $\geq$ $\mathbb{N}$:
+\begin{center}
+    $|x_{y} - x_{z}|$ $\leq$ $|x_{y}-x_{z}| + |x-x_{z}| < \epsilon/2 + \epsilon/2 =\epsilon$.
+\end{center}
+Thus, ($x_{n}$) is Cauchy.
+\end{proof}
+\section{Exercise 3}
+
+\textbf{Show that if a Cauchy sequence does not converge to 0, all the terms must converge to the same sign.}
+
+\begin{proof}
+Let $x_{n}$ be a Cauchy sequence. 
+\\\\Let $\epsilon > 0$. For all y, z $\geq$ N, $|x_{y} - x_{z}| < \epsilon$.
+\\Since $x_{n}$ does not converge to 0, there exists $\epsilon > 0$ such that for each N,
+$x_{n} \notin (0-\epsilon, 0+\epsilon)$.
+\\\\
+But for $\epsilon$, there exists a point N' such that for all other later points are within $\epsilon$ of one another, either less than -$\epsilon$ or less than $\epsilon$.
+\\\\
+Thus, since all later points past N' are less than -$\epsilon$ or less than $\epsilon$, all later points have to be either one sign, either all negative or all positive.
+\end{proof}
+\section{Exercise 4}
+
+\textbf{Prove that the sequence
+\begin{center} $x_{1} = 1$, $x_{n+1}$ = $\frac{1}{2}(x_{n} + \frac{3}{x_{n}})$
+\end{center} is contracting. Compute its limit, and use calculator to compute $x_{5}$.}
+
+
+
+
+\begin{proof}
+Using the terms $x_{n+2}$ and $x_{n+1}$, we subtract:
+\begin{center}
+$|x_{n+2} - x_{n+1}| = |\frac{1}{2}(x_{n+1} + \frac{3}{x_{n+1}}) - \frac{1}{2}(x_{n} + \frac{3}{x_{n}})|$
+\\
+= $|\frac{1}{2}||x_{n+1} + \frac{3}{x_{n+1}} - (x_{n} + \frac{3}{x_{n}})|$
+\\
+= $|\frac{1}{2}||\frac{x^2_{n+1}+3}{x_{n+1}} + \frac{-x^2_{n}-3}{x_{n}}|$
+\\
+= $|\frac{1}{2}||\frac{(x^2_{n+1}x_{n}+3x_{n}-x^2_{n}x_{n+1}-3x_{n+1})}{x_{n+1}x_{n}}|$
+\\
+= $|\frac{1}{2}||\frac{-3(x_{n+1}-x_{n})}{x_{n+1}x_{n}}+\frac{x_{n+1}x_{n}(x_{n+1}-x_{n})}{x_{n+1}x_{n}}$
+\\
+= $|\frac{1}{2}(1-\frac{3}{x_{n+1}x_{n}})||x_{n+1}-x_{n}|$
+\end{center}
+If the sequence contracts, then the coefficient c will be less than 1, and $x_{n+1} $\approx$ x_{n}$ such that $|\frac{1}{2}(1-\frac{3}{x^2_{n}})|<1$.
+\begin{center}
+    $-2<1-\frac{3}{x^2_{n}}<2$ \\
+    $-3<-\frac{3}{x^2_{n}}<1$ \\
+    $1>\frac{1}{x^2_{n}}>-\frac{1}{3}$ \\ 
+    $1>\frac{1}{x^2_{n}}$ \\ Solving for $x_{n},$ we get $x_{n}<-1$ or $x_{n}>1$.
+\end{center}
+Given that $x_{n}$ is a real number, there exists a number r $\in \mathbb{R}$ such that $x_{n} > r >1$. 
+\\
+Here, we obtain:
+\\
+= $|\frac{1}{2}(1-\frac{3}{x_{n+1}x_{n}})||x_{n+1}-x_{n}|<|\frac{1}{2}(1-\frac{3}{r^2})||x_{n+1}-x_{n}|<1|x_{n+1}-x_{n}|$
+\\
+Therefore, $|x_{n+2} - x_{n+1}| < c|x_{n+1}=x_{n}|$. \\ For c, the sequence is contracting (c=$|\frac{1}{2}(1-\frac{3}{r^2}|$.
+r is the lower bound for $x_{n}$. To find r, we can prove that the value of r is a lower bound for all $x_{n}$ using induction.
+For instance, because $x_{3} = \frac{7}{4} > \frac{3}{2}$, r may equal $\sqrt{\frac{3}{2}}$. 
+
+\begin{center}
+Given S(n) := $\sqrt{\frac{1}{2}} < x_{n}$, S(2) is our base case. S(2) = $\sqrt{\frac{1}{2}} < 2$. 
+\\ We assume S(k) := $\sqrt{\frac{3}{2}}<x_{k}$, we prove that S(k+1) := $\sqrt{\frac{3}{2}}<x_{k+1}$
+\\ $\frac{1}{2}(x_{k}+3_{x_k}) = x_{k+1}$. $x_{k} > \sqrt{\frac{3}{2}}$.
+\\ Therefore, $x_{k+1}>\frac{1}{2}(\sqrt{\frac{3}{2}}+\frac{3}{\sqrt{\frac{3}{2}}})$ = $x_{k+1} > \frac{3}{2}\sqrt{\frac{3}{2}}>\sqrt{\frac{3}{2}}$\\
+$x_{n} > \sqrt{\frac{3}{2}}$ for all n $\geq$ 2. 
+\end{center}
+\\Thus, $\sqrt{\frac{3}{2}}$ is a lower bound for $x_{n}$.
+\\ When r = $\sqrt{\frac{3}{2}}$ and c = $|\frac{1}{2}(1-\frac{3}{\frac{3}{2}})|$, c = $|\frac{1}{2}(1-2)| = \frac{1}{2}(-1) = \frac{1}{2}$.
+\\ As for the limit of the sequence, the limit is $\sqrt{3}$.
+\\ The value for $x_{5} \approx 1.73205081$.
+\end{proof}
+\section{Exercise 5}
+
+\textbf{Find the accumulation points of the following sets in $\mathbb{R}$:
+\\ i) S = (0,1);
+\\ ii) S = {$(-1)^{n}$ + $\frac{1}{n}$ $|$ n $\in$ $\mathbb{N}$};
+\\ iii) S = $\mathbb{Q}$;
+\\ iv) S = $\mathbb{Z}$;
+}
+\\
+\\ i) [0,1]
+\\ ii) \{-1,1\}
+\\ iii) all points in $\mathbb{R}$.
+\\ iv) no accumulation points.
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+

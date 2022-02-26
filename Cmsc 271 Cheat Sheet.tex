@@ -1,0 +1,358 @@
+\documentclass[9pt,landscape]{article}
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{multicol,multirow}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage{soul}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[landscape]{geometry}
+\newcommand{\hlc}[2][yellow]{{%
+    \colorlet{foo}{#1}%
+    \sethlcolor{foo}\hl{#2}}%
+}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
+
+
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=.3in,left=.3in,right=.3in,bottom=.3in} }
+	{\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+	}
+\pagestyle{empty}
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1explus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\small\bfseries}}
+\makeatother
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+% -----------------------------------------------------------------------
+
+\title{CMSC 27100: Cheat Sheet for Midterm 1}
+
+\begin{document}
+
+\raggedright
+\footnotesize
+
+\begin{center}
+     \Large{\textbf{CMSC 27100: Cheat Sheet for Midterm 1: Amatullah Mir}} \\
+     \end{center}
+\begin{multicols}{3}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+
+\subsection{\underline{\textbf{General Notes:}}}
+\item {\textbf{\hl{1. Rules for Negating Statements:}}}
+\\ (a) $\neg(\neg A)$ is equivalent to A.
+\\ (b) $\neg(A \lor B)$ is equivalent to $\neg A \land \neg B.$
+\\ (c) $\neg(A \land B)$ is equivalent to $\neg A \lor \neg B.$
+\\ (d) $\neg(A \rightarrow B)$ is equivalent to $A \land \neg B.$
+\\ (e) $\neg(\forall xP(x))$ is equivalent to $\exists x(\neg P(x)).$
+\\ (f) $\neg(\exists xP(x))$ is equivalent to $\forall x(\neg P(x)).$ \\ This can also be written as $\nexists(P(x))$.
+
+\item {\textbf{\hl{2. Definition of divisibility:}}} 
+\\ d$|$n means that $\exists q \in \mathbb{Z} $ such that n = qd.
+
+\item {\textbf{\hl{3. Set of divisors of n:}}}
+\\ We define $Div(n) = {d \in \mathbb{Z} : d|n}.$
+
+\item {\textbf{\hl{4. Greatest common divisor:}}}
+\\ $gcd(x,y)$ is the largest element of $Div(x) \cap Div(y).$
+
+\item {\textbf{\hl{5. Theorem}}}
+\\ $Div(x) \cap Div(y) = Div(gcd(x,y))$ 
+\\  (i.e. $d | gcd(x,y) \leftrightarrow  d | x \land d |y$)
+
+\item {\textbf{\hl{6. B\'{e}zout's Identity}}}
+\\ $\exists a,b \in \mathbb{Z}(\gcd(x,y) = ax + by)$ 
+\\ (i.e. gcd(x,y) is in the span of x and y)
+
+\item {\textbf{\hl{7. Prime property}}}
+\\ If p is prime then $p|ab \rightarrow p|a \lor p|b$
+
+\item {\textbf{\hl{8. Fundamental Theorem of Arithmetic}}}
+\\ Let $p_1, p_2, p_3,$... be the primes in ascending order.
+For all natural numbers n, there is a unique sequence of non-negative integers $c_1, c_2, c_3,$... such that $\prod_{j=1}^{\infty} p_{j}^{c_j} $.
+
+\item {\textbf{\hl{9. Modular arithmetic}}}
+\\ $n \mod  d = r $ means that if we divide n by d, the remainder is r.
+$a \equiv b \mod   n$ (which we can also write as $a \equiv b(\mod   n)$ to emphasize that mod n describes a congruence relation here) means that
+$n |(b - a) (i.e. \exists q \in \mathbb{Z} (b=a+qn))$
+
+\item {\textbf{\hl{10. Equivalence}}}
+\\ $a \equiv b(\mod   n)$ is equivalent to $a \mod   n = b \mod   n$.
+\\ $a \mod   n = b$ is equivalent to $a \equiv b(\mod   n) \land 0 \leq b < n.$
+
+\item {\textbf{\hl{11. Another modulo rule:}}}
+\\ If $a' \equiv a(\mod   n)$ and $b′ \equiv b(\mod   n)$ then $(a′ + b′) \mod   n = (a + b)\mod   n$ and $a′b′ \mod   n = ab \mod   n$ (or equivalently, $a′ + b′ \equiv a + b(\mod   n)$ and $a′b′ \equiv ab(\mod   n)).$
+
+\item {\textbf{\hl{12. $\mathbb{Z}_n:$}}}
+\\ $\mathbb{Z}_n$ is the ring of integers modulo n. In $\mathbb{Z}_n$ = $\{0,1,...,n −1\}$, everything is taken modulo n. In $\mathbb{Z}_n$, $x + y = (x+y) \mod   n$ and $x \ast y$ = ($x \ast y$) \mod   n.$
+
+\item {\textbf{\hl{13. Inverses in $\mathbb{Z}_n$}}}
+\\ $x$ is invertible in $\mathbb{Z}_n$ if $gcd(x,n) = 1.$ If so, we take $x^{-1}$ to be the number in $[n]$ such that $x \ast x^{-1} \equiv 1(\mod n).$
+
+\item {\textbf{\hl{14. Chinese Remainder Theorem:}}}
+\\ If $n_1, ..., n_k$ are natural numbers such that any pair of these
+numbers are relatively prime (i.e. $∀j,j′ \in [k](j \neq j′ \rightarrow gcd(n_j, n_{j′}) = 1))$ then taking
+\\ $\prod_{j=1}^{k} n_{j},$ for any integers $a_1,...,a_k$, there is a unique $x \in \{0,1,...,N-1\}$ such that $\forall j \in [k] (x \equiv a_j(\mod n_j)).$
+\\
+\\ Formula for x: $x = (\Sigma^{k}_{j=1} a_{j}e_{j}) \mod N$ where $e_j = cj \frac{N}{n_j}$ and $c_j$ is the inverse of $\frac{N}{n_j} \mod n_j$ in $\mathbb{Z}_{n_j}$
+
+\item {\textbf{\hl{15. Wilson's Theorem:}}}
+\\ For all primes $p$, $(p-1)! \equiv -1 \mod    p.$
+
+\item {\textbf{\hl{16. Euler's Totient Function:}}}
+\\ $\phi(n) = |\{x \in [n]: gcd(x,n) = 1\}|$. If the prime factorization of $n$ is $n = \prod_{j=1}^{\infty} p_{j}^{c_j},$ then $\prod_{j \in \mathbb{N}: c_j>0} p_{j}^{c_j-1} (p_j-1)$
+
+\item {\textbf{\hl{17. Fermat's Little Theorem:}}}
+\\  If $p$ is prime and $p \nmid x$ then $x^{p - 1} \equiv 1 \mod   p.$
+
+\item {\textbf{\hl{18. Generalization of Fermat's Little Theorem:}}}
+\\ If $gcd(x,n) = 1$ then $x^{\phi(n)} \equiv 1 \mod n$.$
+
+\item {\textbf{\hl{19. Euclidean Algorithm:}}}
+\begin{itemize}
+    \item If a = 0 then $gcd(a,b)=b,$ since the $gcd(0,b)=b,$ \\ and we can stop. 
+    \item If b = 0 then $gcd(a,b)=a,$ since the $(a,0)=a,$ \\ and we can stop.
+    \item Write a in quotient remainder form $(a = b⋅q + r)$
+    \item Find $gcd(b,r)=b$ using the Euclidean Algorithm since $gcd(a,b) = gcd(b,r)$.
+\end{itemize}
+
+\item {\textbf{\hl{20. Important Sets:}}}
+\begin{enumerate}
+    \item $\emptyset = \{\}$ is the empty set which contains no objects.
+    \item $\mathbb{N} = \{1, 2, 3, . . .\}$ is the set of natural numbers.
+    \item $[n] = \{1, 2, . . . , n\} = {x \in \mathbb{N} : 1 \leq x \leq n}$ is the set of natural numbers between 1 and n.
+    \item $\mathbb{Z} = \{. . . , -3, -2, -1, 0, 1, 2, 3, . . .\}$ is the set of integers.
+    \item $\mathbb{Q} = \{\frac{p}{q}: p \in \mathbb{Z}, q \in \mathbb{N}\}$ is the set of rational numbers.
+    \item $\mathbb{R}$ is the set of real numbers.
+    \item $[a, b] = {x \in \mathbb{R} : a \leq x \leq b}$ is the closed interval between a and b. Similarly, $(a, b) = {x \in \mathbb{R} : a < x < b}$ is the open interval between a and b.
+    \item $\mathbb{C} = {a + bi : a, b \in \mathbb{R}}$ (where $i = \sqrt{−1}$) is the set of complex numbers.
+    \item We take $\mathbb{P} = {p \in \mathbb{N} : p > 1$ the only positive divisors of p are 1 and p} to be the set of prime numbers.
+\end{enumerate}
+
+\item {\textbf{\hl{21. Operations on Sets:}}}
+\begin{enumerate}
+\item $\{1, 2, 4, 8, 16\} \cup \{1, 4, 9, 16\}= \{1, 2, 4, 8, 9, 16\}$
+\item $\{1, 2, 4, 8, 16\} \cap \{1, 4, 9, 16\}= {1, 4, 16}$
+\item $\{1, 2, 4, 8, 16\}\ \{1, 4, 9, 16\}= \{2, 8\}$ and $\{1, 4, 9, 16\}\ \{1, 2, 4, 8, 16\}= \{9\}$
+\item If our universe U is \mathbb{Z} and $S = \{2n : n \in \mathbb{Z}\}$ is the set of even integers then  ̄$S = \{2n + 1 : n ∈ \mathbb{Z}\}$ is the set of odd integers.
+\item $\mathbb{R} \times \mathbb{R} = \mathbb{R}^2= \{(x, y) : x, y \in \mathbb{R}\} $ is the plane.
+\item If $S = \{1, 2, 4\}$ and $T = \{1, 3\}$ then $S \times T = \{(1, 1), (1, 3), (2, 1), (2, 3), (4, 1), (4, 3)\}$
+\item If $S = \{1, 3, 6, 10, 15\}$ then $|S|= 5$ (cardinality)
+\end{enumerate}
+
+\subsection{\underline{Examples:}}
+
+\item {\textbf{\hlc[cyan!25]{1. Calculating Inverse:}}}
+\\ \textbf{What is the inverse of 19 in $\mathbb{Z}_{49}$? Show your work.}
+\\ We apply Euclid’s algorithm with $x = 49$ and $y = 19.$
+\begin{enumerate}
+    \item $49 = 2 \ast 19 + 11$ so $11 = 49 - 2 \ast 19.$
+    \item $19 = 11 + 8$ so $8 = 19 - 11 = 19 -(49 - 2 \ast 19) = 3 \ast 19 - 49.$
+    \item $11 = 8 + 3$ so $3 = 11 - 8 = (49 - 2 \ast 19) −(3 \ast 19 - 49) = 2 \ast 49 - 5 \ast 19.$
+    \item $8 = 2 \ast 3 + 2$ so $2 = 8 - 2 \ast 3 = (3 \ast 19 - 49) -2(2 \ast 49 - 5 \ast 19) = 13 \ast 19 - 5 \ast 49.$
+    \item $3 = 2 - 1$ so $1 = 3 - 2 = (2 \ast 49 - 5 \ast 19) −(13 \ast 19 - 5 \ast 49) = 7 \ast 49 - 18 \ast 19.$
+\end{enumerate}
+Thus, the inverse of 19 in $\mathbb{Z}_{49}$ is −18 mod 49 = 31
+
+\item {\textbf{\hlc[cyan!25]{2. Using prime factorizations:}}}
+\\ \textbf{Find $gcd(x, y)$ for $x = 650$ and $y = 364.$}
+\\ Answer:
+\\ $x = 650 = 2^1 \ast 5^2 \ast 13^1$ and $y = 364 = 2^2 \ast 7^1 \ast 13^1$ so $gcd(x, y) = 2^1 \ast 13^1 = 26.$
+
+\item {\textbf{\hlc[cyan!25]{3. Euclid's Algorithm:}}}
+\\ Let $x = 147$ and $y = 56.$ Use Euclid’s algorithm to find $gcd(x, y)$ and integers a, b such that $gcd(x, y) = ax + by.$ Show your work.
+\\ Solution: We can run Euclid’s algorithm as follows.
+\begin{enumerate}
+\item $147 = 2 \ast 56 + 35$ so $35 = 147 - 2 \ast 56 = x - 2y.$
+\item $56 = 35 + 21$ so $21 = 56 - 35 = y - (x - 2y) = 3y - x.$
+\item $35 = 21 + 14$ so $14 = 35 - 21 = (x - 2y) - (3y - x) = 2x - 5y.$
+\item $21 = 14 + 7$ so $7 = 21 - 14 = (3y - x) - (2x - 5y) = 8y - 3x.$
+\end{enumerate}
+\\ 14 is divisible by 7 so $gcd(x, y) = 7$ and $gcd(x, y) = ax + by$ where $a = -3$ and $b = 8$
+
+\item {\textbf{\hlc[cyan!25]{4. Modular arithmetic:}}}
+\begin{enumerate}
+
+\item \textbf{For a problem $a^n \mod p$, ask if p is equal to the product of two primes.}
+\\ \textbf{\hlc[purple!20]{Example:}} What is $10^{123} \mod 77$?
+
+\begin{itemize}
+\item 77 is product of two primes 7 and 11, so $(7-1)(11-1) = 60.$
+\item $123 \mod 60 = 3.$
+\item Then, $10^{123} \mod 77 = 10^{(123 \mod 60)} = 10^3 \mod 77 = 76$
+\end{itemize}
+
+\item \textbf{For a problem $a^n \mod p$, ask if p is a prime number. If it is, we use Fermat's Little Theorem.}
+\\ \textbf{\hlc[purple!20]{Example:}} What is $12^{100} \mod 17$? 
+\begin{itemize}
+    \item $12^{100} \mod 17 = 12^{(100 \mod 16)} \mod 17 =$
+    \item $ 12^4 \mod 17 = 82 \mod 17 = 13$
+\end{itemize}
+
+\\ \textbf{\hlc[purple!20]{Example:}} What is $4^{20} \mod 7$? 
+\begin{itemize}
+    \item $4^{20} \mod 7 = 4^{(20 \mod 6)} \mod 7 = $
+    \item $4^2 \mod 7 = 2$
+\end{itemize}
+\item \textbf{Extra practice...}
+    \\ $(16 - 90) \mod 7 = -74 \mod 7 = - 4 \mod 7 = 3$
+    \\ $16! \mod 17 = -1 \mod 17 = 16$ (By Wilson's Theorem)
+\item \textbf{Double exponentiation:}
+\\ \textbf{\hlc[purple!20]{Example:}} What is $3^{7^{60}} \mod 29$? 
+
+By Fermat’s Little Theorem, $3^{28} \equiv 1 \mod 29$ so $3(7^{60}) \mod 29$ = $3(7^{60} \mod 28) \mod 29.$
+Thus, we need to find $7^{60} \mod 28$. $gcd(7, 28) \neq 1,$ so we cannot use the generalization of Fermat’s Little Theorem.
+Instead, we can compute $7^{60} \mod 28$ by computing $7^{60} \mod 7$ and $7^{60} \mod 4. 7^{60} \mod 7 = 0$ and $7 \ast -1 \mod 4$ so $7^{60} \mod 4 = (-1)^{60} \mod 4 = 1.$ Thus, we need to find a multiple of 7 which is equal to 1 modulo 4. $3 \ast 7 = 21$ is congruent to 1 modulo 4 so by the Chinese Remainder Theorem, we must have that $7^{60} \mod 28 = 21.$ We now compute $321 \mod 29$ through repeated squaring.
+\begin{itemize}
+\item $3^1 \equiv 3 \mod 29$
+\item $3^2 \equiv 9 \mod 29$
+\item $3^4 \equiv 9 \ast 9 \equiv -6 \mod 29$
+\item $3^8 \equiv (-6) \ast (−6) \equiv 7 \mod 29$
+\item $3^16 \equiv 7 \ast 7 \equiv 20 \mod 29$
+\item $3^21 = 3^16 \ast 3^4 \ast 3$ so $3^21 \equiv 20 \ast (-6) \ast 3 \equiv -6 \ast 2 \equiv 17 \mod 29$
+\end{itemize}
+
+\\ \textbf{\hlc[purple!20]{Example:}}  What is $2^{(3^{256})} \mod 119?$
+
+\\ $119 = 7 \times 17.$ \\ $2^{3^{256}} \mod 7 = 2^{3^{256}} \mod 7 = 2^3 \mod 7 = 1.$ \\
+$2^{3^{256}} \mod 17 = 2^{3^{256}} \mod 16 \mod 17 = 21 \mod 17 = 2$
+\\ To find $3^{256} \mod 6$ and $3^{256} \mod 16$: $3^{256} \mod 3 = 0, 3^{256} \mod 2 = 1,$ so $3^{256} \mod 6 = 3$
+\\ $3^{256} \mod 16 = 3^{256 \mod \phi(16)} \mod 16 = 1$
+\\ Using the Chinese Remainder Theorem, we have \\ $2^{3^{256}} \mod 119 = 36$
+\end{enumerate}
+\\
+\item {\textbf{\hlc[cyan!25]{5. Sum and number of divisors.}}}
+\begin{enumerate}
+\item \textbf{\hlc[purple!20]{Given a natural number n, how many positive divisors does n have? Example: 24.}}
+\\ $24 = 2^3 \ast 3^1$
+\\ $(3+1)(1+1) = 8 $ positive divisors
+\\ $Div(n) \cap \mathbb{N} =\{1,2,3,4,6,8,12,24\} $
+
+\item \textbf{\hlc[purple!20]{Given a natural number n, what is the sum of its positive divisors? Example: 420.} }
+\\ Prime factorization of 420: $2^2 \ast 3^1 \ast 5^1 \ast 7^1$
+sum of positive divisors: 
+\\ $S(2) = 2^0 + 2^1 + 2^2 = 1+2+4$ 
+\\ $S(3) = 3^0 + 3^1 = 1+3$
+\\ $S(5) = 5^0 + 5^1 = 1+5$ 
+\\ $S(7) = 7^0 + 7^1 = 1+7$
+\\$(1 + 2 + 4)(1 + 3)(1 + 5)(1 + 7) = 7 \ast 4 \ast 6 \ast 8 = 1344$
+\\ Thus, the sum of all of 420's positive divisors is 1344.
+\end{enumerate} 
+
+\item {\textbf{\hlc[cyan!25]{6. Chinese remainder theorem:}}}
+\begin{enumerate}
+\item \textbf{\hlc[purple!20]{Find an $x \in \mathbb{Z} \cap [0,164]$ such that $x \equiv 2 \mod 11$ and $x \equiv 11 \mod 15.$ Show your work.}} \smallskip
+\\ $e_1 = $ inverse of 15 in $\mathbb{Z}_{11} * 15 = 3 * 15 = 45$
+\\ $e_2 = $ inverse of 11 in $\mathbb{Z}_{15} * 11 = 11 * 11 = 121$
+\\ $x = 2e_{1} + 11e_{2} (\mod 165)$
+\\ $(2)(45)+(11)(121) = 1421$
+\\ $1421 = 165*8 + 101$
+\\ $x = 101$
+\item \textbf{\hlc[purple!20]{Find an $x \in \mathbb{Z} \cap [0,629]$ such that $x \equiv 4 \mod 7, x \equiv 4 \mod 9,$ and $x \equiv 6 \mod 10.$ \\ Show your work.}} 
+\smallskip
+\\ $e_1 = $ inverse of 90 in $\mathbb{Z}_{7} * 90 = 6 * 90 = 540$
+\\ $e_2 = $ inverse of 70 in $\mathbb{Z}_{9} * 70 = 4 * 70 = 280$
+\\ $e_3 = $ inverse of 63 in $\mathbb{Z}_{10} * 63 = 7 * 63 = 441$
+\\ $x = 4e_{1} + 4e_{2} + 6e_{3} (\mod 630)$
+\\ $(540)(4)+(280)(4) + (441)(6) = 5926$
+\\ $5926 = 630*9 + 256$
+\\ $x = 256$
+\end{enumerate}
+\\ \textbf{Do not forget to show calculations for the inverse.}
+
+\item {\textbf{\hlc[cyan!25]{7. Mathematical sets:}}}
+\\ How would you write down the set of all natural numbers which are the product of two primes? $\{pq : p, q \in \mathbb{P}\}$ \smallskip
+\\ How would you write down the set of all real roots of the polynomial $p(x) = x^3-4x + 3?$ $= \{x \in \mathbb{R} : x^3-4x + 3 = 0\}$ \\ \smallskip
+
+\item {\textbf{\hlc[cyan!25]{8. Set of numbers with x positive divisors:}}}
+\begin{enumerate} 
+\item Which natural numbers have exactly 10 positive divisors? Give two examples of natural numbers which have 10 positive divisors.
+\\ $\{p^9 : p \in \mathbb{P}\}, \{p^4q : p, q \in \mathbb{P}, p \neq q\}$ \smallskip
+\\ sample examples: 2^9 = 512, 2^4 $\ast$ 3 = 48
+\item Which natural numbers have exactly 18 positive divisors? Give two examples of natural numbers which have 18 positive divisors.
+\\ $\{p^{17} : p \in \mathbb{P}\}$, $\{p^8q : p, q \in \mathbb{P}, p \neq q\}, \{p^5q^2 : p, q \in P, p \neq q\}, \{p^2q^2r : p, q, r \in \mathbb{P}, p \neq q, p \neq r, q \neq r}$ \smallskip
+\\ sample examples: $2^8 \ast 3 = 768, 2^5 \ast 3^2 = 288$
+
+\end{enumerate}
+\subsection{\underline{Proofs and their examples:}}
+
+\item {\textbf{\hlc[lime]{1. Induction proof.}}}
+\\ \textbf{Use mathematical induction to prove that $n^2 + n$ is divisible by 2 for all positive integers n.} \smallskip
+\\ Step 1: Basis step: show true for $n=1.$
+\\ $n^2 + n = (1)^2 + 1$
+\\ Yes, 2 is divisible by 2. \smallskip
+\\ Step 2: Assume that the statement is true for $n=k.$ Thus, $n^2 + n$ becomes $k^2 + k$ where k is a positive integer.
+\\ Now, write ${k^2} + k$ as part of an equation which denotes that it is divisible by 2: $k^2 + k = 2x$. Solve for $k^2=2x−k$ \smallskip
+\\ Step 3: Prove the statement is true for $n=k+1$. Proof done on other paper, ignore for now.
+
+\item {\textbf{\hlc[lime]{2. Proof by contradiction.}}} 
+\\ \textbf{Use a proof by contradiction to show that $\sqrt{2} + \sqrt{3} \in \mathbb{Q}.$}
+\\ Suppose $\sqrt{2} + \sqrt{3} \in \mathbb{Q},$ so we have $\sqrt{2} + \sqrt{3} = \frac{a}{b}$ for $a, b \in \mathbb{Z}.$
+\\ $\sqrt{2} + \sqrt{3} = \frac{a}{b}$
+\\ $\sqrt{2} = \frac{a}{b} - \sqrt{3}$
+\\ $2 = (\frac{a}{b}-\sqrt{3})^2$
+\\ $2 = \frac{a^2}{b^2} + 3-2 \sqrt{3} \frac{a}{b}$
+\\ $2 \sqrt{3} \frac{a}{b} = \frac{a^2}{b^2}+1$
+\\ $\sqrt{3} = (\frac{a^2}{b^2} +1)\frac{b}{2a}$
+\\ $\sqrt{3} = \frac{a}{2b} + \frac{b}{2a}$
+\\ Since both $a, b \in \mathbb{Z}$, so $\frac{a}{2b} + \frac{b}{2a}$ is in $\mathbb{Q},$ which means $\sqrt{3} \in \mathbb{Q}.$ However, $\sqrt{3} \notin \mathbb{Q},$ so this is a contradiction.
+
+\item {\textbf{\hlc[lime]{3. B\'{e}zout's Identity proof.}}} \smallskip
+\\ \textbf{Use B\'{e}zout's Identity to prove that $\forall x, y, z \in \mathbb{N}, (gcd(x, y)gcd(y, z)|ygcd(x, z)).$} \smallskip
+\\ By B\'{e}zout's Identity, we have $ygcd(x, z) = axy + bzy.$ 
+\\ By the definition of divisibility, there are integers $c, d, e, f$ such that $x = gcd(x, y)c, y = gcd(x, y)d, y = gcd(y, z)e,$ and $z = gcd(y, z)f.$ Then $ygcd(x, z) = ace \ast gcd(x, y)gcd(y, z) + bdf \ast gcd(x, y)gcd(y, z).$ Thus, $gcd(x, y)gcd(y, z)|ygcd(x, z).$ 
+
+\item {\textbf{\hlc[lime]{4. Definition of divisibility proof.}}}
+\\ \textbf{Prove that $\forall a, b, c, d \in \mathbb{N},$ if $a|b, a|c,$ and $a|d$ then $a|(b + 2c + 3d).$} \smallskip
+\\ Proof: By the definition of divisibility, it is sufficient to prove that $\exists k \in \mathbb{Z}$ such that $ak = b + 2c + 3d.$
+By the definition of divisibility, there exists $x, y, z \in \mathbb{Z}$ such that $ax = b, ay = c,$ and $az = d.$
+\\ We now have $ax + 2ay + 3az = b + 2c + 3d$
+$a(x + 2y + 3z) = b + 2c + 3d.$
+\\ Then we have 
+$ak = b + 2c + 3d$ where $k = x + 2y + 3z.$ 
+\\ We know that $x + 2y + 3z \in \mathbb{Z}$ because the integers are closed under addition and multiplication. 
+\item {\textbf{\hlc[lime]{Prime factorizations proof.}}} \smallskip
+\\ \textbf{Use prime factorizations to prove that for all natural numbers x and y, if $x^2|y^2$ then $x|y.$}
+\\ Let $x = p_1^{x_1}p_2^{x_2}...p_n^{x_n}$ and $y = p_1^{y_1}p_2^{y_2}...p_n^{y_n}$ be the prime factorizations of x and y. \\ Note here we allow some exponents to be 0 if it occurs in one of x, y but not the other. 
+\\ Then we have $x^2 = p_1^{2x_1}p_2^{2x_2}...p_n^{2x_n}$ and $y^2 = p_1^{2y_1}p_2^{2y_2}...p_n^{2y_n}$. Since $x^2|y^2,$ we have $2y_i \geq 2x_i$ for all i $\in [n],$ so $y_i \geq x_i$ for all $i \in [n],$ which implies that $x|y.$
+
+\item {\textbf{\hlc[lime]{Where does the Chinese Remainder Theorem not work?}}}
+\\ \textbf{Is there an integer x such that $x \equiv 8 \mod 15$ and $x \equiv 10 \mod 21$? Either find such an x or prove that no such x exists.} 
+\begin{itemize}
+\\ \item $x \equiv 8 \mod 15$ and $3|15,$ so $x \mod 3 = (x \mod 15) \mod 3 = 8 \mod 3 = 2$
+\\ \item $x \equiv 10 \mod 21$ and $3|21,$ so $x \mod 3 = (x \mod 21) \mod 3 = 10 \mod 3 = 1$
+\\ \item So no such x exists.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+\end{multicols}
+
+\end{document}

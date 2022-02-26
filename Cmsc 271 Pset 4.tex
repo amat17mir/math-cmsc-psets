@@ -1,0 +1,290 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amsthm,amssymb,amscd,epsfig,url}
+\usepackage{fullpage}
+\usepackage{times}
+\usepackage{soul}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+
+
+\newcommand{\hilight}[1]{\setlength{\fboxsep}{1pt}\colorbox{yellow}{#1}}
+
+\newcommand{\hlitem}{\stepcounter{enumi}\item[\hilight{\theenumi}]}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\def\ZZ{{\mathbb Z}}
+\def\QQ{{\mathbb Q}}
+\def\RR{{\mathbb R}}
+\def\TT{{\mathcal{C} T}}
+\def\KK{{\mathcal{C} K}}
+\newcommand{\hus}{\hfill\break}
+\newcommand{\bull}{\textbullet\;\;}
+\def\iso{{\operatorname{\ \approx \ }}}   % isomorphism
+\def\im{{\operatorname{im}}}              % image
+\def\Hom{{\operatorname{Hom}}}           % homomorphisms
+\def\line{{\operatorname{line} \,}}       % line graph
+\def\sd{{\operatorname{sd \,}}}           % first edge subdivision graph
+\def\coker{{\operatorname{coker}}}        % cokernel
+\def\lcm{{\operatorname{lcm}}}             % least common multiple
+\newcommand{\gcdd}{\gamma}              
+\def\del{{\partial}}                      % signed incidence matrix
+\def\<{{\langle}} \def\>{{\rangle}}       % Inner product
+\def\ZC{{Z^\#}}                           % cycle space
+\setlength{\textheight}{9in}               
+%\setlength{\textwidth}{6in}               % width of text
+%\setlength{\oddsidemargin}{0in}           % odd page left margin
+%\setlength{\evensidemargin}{0in}          % even page left margin 
+\title{Problem Set 4}
+\author{CMSC 27100: Discrete Mathematics\\ Amatullah Mir}
+
+\date{Assigned February 2, Due February 11}
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\noindent \item Note: It is strongly recommended that you do not attempt the extra credit
+problems until you have completed the rest of the problem set.
+\section{\hl{Problems for February 4 (Lecture 11)}}
+\section*{\hl{Problem 1: Chinese Remainder Theorem (20 points)}}
+
+\begin{enumerate}
+\item[(a)] \hl{Find an $x \in \mathbb{Z} \cap [0,164]$ such that $x \equiv 2 \mod 11$ 
+and $x \equiv 11 \mod 15$. Show your work.}
+\end{enumerate}
+\item $e_1 = $ inverse of 15 in $\mathbb{Z}_{11} * 15 = 3 * 15 = 45$
+\item $e_2 = $ inverse of 11 in $\mathbb{Z}_{15} * 11 = 11 * 11 = 121$
+\item $x = 2e_{1} + 11e_{2} (\mod 165)$
+\item $(2)(45)+(11)(121) = 1421$
+\item $1421 = 165*8 + 101$
+\item $x = 101$
+
+
+\begin{enumerate}
+\item[(b)] \hl{Find an $x \in \mathbb{Z} \cap [0,629]$ such that $x \equiv 4 \mod 7$, 
+$x \equiv 4 \mod 9$, and $x \equiv 6 \mod 10$. Show your work.}
+\end{enumerate}
+
+\item $e_1 = $ inverse of 90 in $\mathbb{Z}_{7} * 90 = 6 * 90 = 540$
+\item $e_2 = $ inverse of 70 in $\mathbb{Z}_{9} * 70 = 4 * 70 = 280$
+\item $e_3 = $ inverse of 63 in $\mathbb{Z}_{10} * 63 = 7 * 63 = 441$
+\item $x = 4e_{1} + 4e_{2} + 6e_{3} (\mod 630)$
+\item $(540)(4)+(280)(4) + (441)(6) = 5926$
+\item $5926 = 630*9 + 256$
+\item $x = 256$
+
+\section*{\hl{Problem 2: Handling $n_1$ and $n_2$ which are not relatively prime (15 
+points)}}
+\begin{enumerate}
+\item[(a)] \hl{Prove that for all $d,n \in \mathbb{N}$ and all $x \in \mathbb{Z}$, if 
+$d | n$ then $(x \mod n) \mod d = x \mod d$.}
+\end{enumerate}
+\item $d|n \rightarrow (x \mod n)\mod d (x \mod d):$
+\item Apply the definition of divisibility:
+\item $d*c = n$
+\item $x = q_{1}n + r_{1}$
+\item $x = q_{1}cd + r_{1}$
+\item $x = q_{2}d + r_{2}$
+\item Set both x equal to each other: $q_{1}cd + r_1 = q_2d+r_2$
+\item $r_1 = x \mod n$
+\item $r_2 = x \mod d$
+\item $q_1cd -q_2d = r_2 - r_1 \rightarrow d(q_1c-q_2) = x \mod d - x \mod n$
+\item 
+
+\begin{enumerate}
+\item[(b)] \hl{Is there an integer $x$ such that $x \equiv 8 \mod 15$ and $x \equiv 
+10 \mod 21$? Either find such an $x$ or prove that no such $x$ exists.}
+\end{enumerate}
+
+\item No such x exists, as both pairs are not coprime. From part a, we know that x has to be congruent to two different things mod the same thing, which is not the case.
+
+\begin{enumerate}
+\item[(c)] \hl{Is there an integer $x$ such that $x \equiv 3 \mod 20$ and $x \equiv 
+13 \mod 25$? Either find such an $x$ or prove that no such $x$ exists.}
+\end{enumerate}
+
+Hint: Consider the quotient and remainder of $x$ divided by $gcd(n_1,n_2)$.
+
+\item Let g be the greatest common divisor of m, n.
+\item $x \equiv a (\mod m)$
+\item $x \equiv b (\mod n)$
+\item If $a \equiv b (\mod g),$ then this system of equations has a unique solution mod $\lcm(m,n) = m*n/g.$ This is true, since the $lcm(20, 25) = 100$, and $20*25/5 = 100$. 
+
+\section{\hl{Problems for February 7 (Lecture 12)}}
+\section*{\hl{Problem 1: Using Fermat's Little Theorem (10 points)}}
+Use Fermat's Little Theorem to compute each of the following expressions. Show your
+work.
+\begin{enumerate}
+\item[(a)] \hl{5 points: What is $4^{20} \mod 7$?}
+
+\item[\rightarrow] $a^{p-1} \equiv 1 \mod p$
+\item[\rightarrow] $p = 7, a = 4$
+\item[\rightarrow] $4^{6} \equiv 1 \mod 7$ = 1
+\item[\rightarrow] $4^{2} \mod 7 = 2$
+\item[\rightarrow] $(4^{2})*(4^{6})*(4^{6})*(4^{6}) = 4^{20}$
+\item[\rightarrow] $2*1*1*1 = 2$
+\item[\Longrightarrow] $4^{20} \mod 7 = 2.$
+
+\item[(b)] \hl{5 points: What is $12^{100} \mod 17$?}
+
+\item[\rightarrow] $a^{p-1} \equiv 1 \mod p$
+\item[\rightarrow] $p = 17, a = 12$
+\item[\rightarrow] $12^{16} \equiv 1 \mod 17$ = 1
+\item[\rightarrow] $12^{2} \mod 17 = 8$
+\item[\rightarrow] $(12^{16})*(12^{16})*(12^{16})*(12^{16})*(12^{16})*(12^{16})*(12^{2})*(12^{2})= 12^{100}$
+\item[\rightarrow] $1*1*1*1*1*1*8*8 = 64$
+\item[\rightarrow] $64 \mod 17 = 13$
+\item[\Longrightarrow] $12^{100} \mod 17 = 13$
+
+
+\end{enumerate}
+
+\section*{\hl{Problem 2: More Exponentiation Problems (10 points, 5 extra credit points
+available)}}
+Compute each of the following expressions. You may use any techniques you want, but
+you must show your work. 
+\begin{enumerate}
+\item[(a)] \hl{5 points: What is $10^{123} \mod 77$?}
+\end{enumerate}
+
+\item Euler's formula: $a^{\phi(n)} \equiv 1 \mod n$ if n is a prime number.
+\item $\phi(n) = n - 1$ if n is a prime number.
+\item 77 is not a prime number, but it is the product of two primes 7 and 11: 
+\begin{center}
+    $\phi(77) = (7-1)(11-1) = 60$
+\end{center}
+\item Therefore, $10^{60} \equiv 1 \mod 77$ and $10^{123} \equiv (10^{60})^{2} * 10^{3} \equiv (1)^{2} * 1000 \equiv 1000 \mod 77.$
+\item $1000 \mod 77 = 77(12) + 76$
+\item Thus, $10^{123} \mod 77 = 76$
+
+\begin{enumerate}
+\item[(b)] \hl{5 points: What is $7^{48} \mod 35$?}
+\end{enumerate}
+\item $7^{2} \mod 35 = 14$
+\item $7^{4} \mod 35 \equiv 14^2 \mod 35 = 21$
+\item $7^{8} \mod 35 \equiv 21^2 \mod 35 = 21$
+\item $7^{16} \mod 35 \equiv 21^2 \mod 35 = 21$
+
+\item We see a pattern: 7 raised to multiples of 4 (mod 35) are equal to 21. As 48 is a multiple of 4: \item $7^{48} \mod 35 = 21.$
+\begin{enumerate}
+\item[(c)] \hl{5 points extra credit: What is $2^{(3^{256})} \mod 119$?}
+\end{enumerate}
+\item $2 \equiv 117 \mod 119$
+\item $2^{3} \equiv (117)^3 \equiv 1 \mod 119$
+\item $2^{3r} = (2^3)^r \equiv 1^r \mod 119 \equiv 1$
+\item Here $3r = 3^{256} \longleftrightarrow r = 3^{256-1}$
+\item Thus, $2^{(3^{256})} \mod 119$ is 1.
+
+\section*{\hl{Problem 3: Analyzing Squares Modulo Primes Congruent to $3$ Mod $4$ (15 
+points)}}
+\begin{enumerate}
+\item[(a)] \hl{10 points: Prove that for all primes $p$ such that $p \equiv 3 \mod 4$, 
+there is no integer $n$ such that $n^2 \equiv -1 \mod p$\\
+\\
+Hint: Apply Fermat's Little Theorem on $n$ and $p$.}
+\end{enumerate}
+\item $p\nmid n. $
+\item $n^{p-1} \equiv 1 \mod p.$
+\item $n^{p-1} \equiv n^{2(p-1)/2}$
+\item Assume $p \equiv 3 \mod 4.$
+\item Case 1: $p|n:$
+\item If $p|n$, then $ n \mod p = 0$. $n^{2} \mod p = 0.$
+\item Case 2: $p\nmid n. $
+\item $n^{p-1} \equiv 1 \mod p$
+\item $n^{p-1} \equiv n^{2(p-1)/2} \equiv 1 \mod p.$ Note: $\frac{p-1}{2}$ is odd.
+\item Set up a proof by contradiction. Assume $n^2 \equiv -1 \mod p$. Thus, $4q+3$..
+\item $n^{2(\frac{4q+3-1}{2})} \rightarrow n^{4q+2}.$ Note: $4q+2$ yields an even number.
+\item $n^{4q+2} \equiv 1 \mod p$ or $-1 \mod p$.
+\item Contradiction \rightarrow $ thus  n^2 \not\equiv -1 \mod p$.
+
+
+\begin{enumerate}
+\item[(b)] \hl{5 points: Deduce that for all primes $p$ such that $p \equiv 3 \mod 4$ 
+and all integers $a$ and $b$, if $p | (a^2 + b^2)$ then $p | a$ and $p | b$.\\
+\\
+Hint: Use the fact that if $p \nmid a$ then $a$ is invertible in $\mathbb{Z}_p$.}
+\end{enumerate}
+\item Note: We can prove this with either $p|a$ or $p|b$, since $a^2+b^2 = b^2+a^2$
+\item $p \equiv 3 \mod 4$. 
+\item Proof by contradiction: assume $p \nmid a.$ Thus, a is invertible in $\mathbb{Z}_{p}.$ $\exists x \in \mathbb{Z}$ such that $ax \equiv 1 \mod p.$
+\item $pd = (a^2+b^2)$ \rightarrow $ Divisibility rule.$\\
+\item $Rearrange: $ $b^2 = pd-a^2$.
+\item $b^2 \equiv -a^2 \mod p$
+\item $\frac{b^{2}}{a^{2}} \equiv -1 \mod p: (\frac{b}{a})^2 \equiv -1 \mod p$
+\item We relate this part of the proof to part (a), in which we use Fermat's Little Theorem to show that there is no integer n such that $n^2 \equiv -1 \mod p.$ 
+\item Thus, if p $\nmid a$, then $n^2 \equiv -1 \mod p,$ which is incorrect.
+
+\section{\hl{More Number Theory Problems}}
+\section*{\hl{Problem 1: Determining Divisibility Modulo $3$ (10 points)}}
+Prove that for all $n \in \mathbb{N}$, $3 | n$ if and only if $3$ divides $D$ where
+$D$ is the sum of the digits of $n$. For example, $n = 156$ is divisible by $3$ as 
+$D = 1 + 5 + 6 = 12$ is divisible by $3$ but $77$ is not divisible by $3$ as $D = 7
++ 7$ is not divisible by $3$.
+
+\item $S = 10^{n}a_{n}+10^{n-1}a_{n-1}+10^{n-2}a_{n-2}+...+10^{2}a_{2}+10a_1+a_0$.
+\item 
+mod $3$ of $S: S \equiv 1 \times a_{n}(\mod 3) + 1 \times a_{n-1}(\mod 3) + ... + 1 \times a_{2} (\mod 3) $
+\item $+ 1 \times a_{1} (\mod 3) + 1 \times a_{0} (\mod 3)$
+\item $\equiv (a_n + a_{n-1} + a_{n-2} + ... + a_2 + a_1 + a_0) (\mod 3).$
+\item $N \equiv 0 (\mod 3)$ if $a_n + a_{n-1} + a_{n-2} + ... + a_2 + a_1 + a_0 \equiv 0 \mod 3$.
+\item Therefore, the sum of digits must be divisible by 3 in order for the number to be divisible by 3.
+
+
+\section*{\hl{Problem 2: A Modular Arithmetic Statement (10 points)}}
+\hl{Either prove the following statement or give a counterexample: $\forall n \in \mathbb{N} (21 | (4^{n+1} + 5^{2n-1}))$.}
+\item \textbf{Base case:} Let n = 1 $\rightarrow$ $21 | (4^{(1)+1} + 5^{2(1)-1})$
+\item[\rightarrow] $21 | (4^{2} + 5^{1}) = 21 | (16 + 5) = 21 | 21.$ 21 is divisible by 21.
+\item \textbf{Induction:} Assume n = k: $21 | (4^{(k)+1} + 5^{2(k)-1})$ is true.
+\item[\longrightarrow] $4^{(k)+1} + 5^{2(k)-1} = 21*q_{1}, q_1 \in \mathbb{N}$
+\item Take $n = k+1: (4^{(k+1)+1} + 5^{2(k+1)-1}) = 21 | (4^{k+2} + 5^{2k+1}) $
+\item $= (4*4^{k+1} + 25*5^{2k-1})$
+\item $= (4*4^{k+1} + (21+4)*5^{2k-1})$
+\item $= (4*4^{k+1} + 21*5^{2k-1}+4*5^{2k-1})$
+\item $= (4(4^{k+1} + 5^{2k-1}) + 21*5^{2k-1}$
+\item $= 4*21q_{1} + 21*5^{2k-1} = 21*4q_{1}+21*5^{2k-1} = 21(4q_{1}+5^{2k-1})$
+\item $21(4q_{1}+5^{2k-1})$ is divisible by 21.
+\item Therefore, $21 | (4^{n+1} + 5^{2n-1}))$.
+
+
+\section*{\hl{Problem 3: Infinitely Many Primes Congruent to $3$ Modulo $4$ (10 
+points)}}
+\hl{Prove that there are infinitely many primes $p$ such that $p \equiv 3 \mod 4$.\\}
+\\
+\hl{Hint: Assume there are only finitely many primes $p_1,\ldots,p_k$ which are 
+congruent to $3$ modulo $4$ and construct a number $n$ such that $n \equiv 3 \mod 
+4$ and $n$ is not divisible by any of the primes $p_1,\ldots,p_k$. Deduce that $n$ 
+must be divisible by a new prime $p$ which is congruent to $3$ modulo $4$.}
+
+\item Assume that $p_1 = 3,...,p_{n}$ are the primes ${p_i} \equiv 3 \mod 4$.
+\item Construct with $n = 4p_{1}...p_{n}-1$ (n is odd) \item \rightarrow $No p_{i}$ primes divide n; however, $p_i | n+1$, and if $p_{i} | n$, then $p_{i} | (n+1)-n = 1$.
+\item Thus, at least one prime factor of n must be of the form $p \equiv 3 \mod 4$. As n is odd, if a prime did not exist, then the prime factors of n will be $p \equiv 1 \mod 4$, which contradicts our original construction of n. 
+
+
+
+\section*{\hl{Extra Credit Problem: $lcm(x,y,z)$ (10 points extra credit)}}
+\hl{Given natural numbers $x,y,z$, define the least common multiple $lcm(x,y,z)$ to be 
+the smallest natural number $m$ such that $x | m$, $y | m$, and $z | m$. What is 
+$lcm(x,y,z)$ in terms of $x$, $y$, $z$, $gcd(x,y)$, $gcd(y,z)$, $gcd(y,z)$, and 
+$gcd(x,y,z)$? Prove that your answer is correct.\\
+\\
+Note: Here $gcd(x,y,z)$ is the largest natural number $d$ which divides $x$, $y$, 
+and $z$. If it is helpful, you may use the generalization of B\'{e}zout's Identity 
+that $\exists a,b,c \in \mathbb{Z} (gcd(x,y,z) = ax + by + cz)$.}\\
+
+\item $\min(\max(a_i,b_i),\max(b_i,c_i),\max(c_i,a_i))+\min(a_i,b_i,c_i)+\max(a_i,b_i,c_i)=a_i+b_i+c_i$\\
+
+\item Set a random ordering, like $a_i \leq b_i \leq c_i$. 
+\item $min(max(a_i,b_i),max(b_i,c_i),max(c_i,a_i))+min(a_i,b_i,c_i)+max(a_i,b_i,c_i)=min(b_i,c_i,c_i)+a_i+c_i=b_i+a_i+c_i=a_i+b_i+c_i.$\\
+\item $max(a_i,b_i,c_i)=a_i+b_i+c_i−min(max(a_i,b_i),max(b_i,c_i),max(c_i,a_i))−min(a_i,b_i,c_i)$
+\item Then,
+\item $\lcm(x,y,z) = \prod_{p} p_{i}^{max(a_i, b_i, c_i)} = \frac{\prod_{p} p_{i}^{a_i+b_i+c_i}}{\prod_{p} p_{i}^{min(max(a_i, b_i, (max(b_i, c_i), max(c_i, a_i)}\prod_{p} p_{i}^{min(a_i,b_i,c_i)}} $\;
+\begin{center}
+\item $= \frac{xyz}{gcd(x,y,z)*gcd(lcm(x,y),lcm(x,z),lcm(y,z)}$
+\end{center}
+\end{document}

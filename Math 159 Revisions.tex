@@ -1,0 +1,404 @@
+
+
+\documentclass[12pt]{article}
+
+
+%----------Packages----------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{amsrefs}
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage[all]{xy}
+\usepackage[mathcal]{eucal}
+\usepackage{verbatim}  %%includes comment environment
+\usepackage{fullpage}  %%smaller margins
+\usepackage{hyperref}
+\usepackage{setspace}
+\onehalfspacing
+%----------Commands----------
+
+%%penalizes orphans
+\clubpenalty=9999
+\widowpenalty=9999
+
+%% bold math capitals
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+%% script math capitals
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sH}{\mathscr{H}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sM}{\mathscr{M}}
+\newcommand{\sN}{\mathscr{N}}
+\newcommand{\sO}{\mathscr{O}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
+\renewcommand{\phi}{\varphi}
+%\renewcommand{\emptyset}{\O}
+
+\providecommand{\abs}[1]{\lvert #1 \rvert}
+\providecommand{\norm}[1]{\lVert #1 \rVert}
+\providecommand{\x}{\times}
+\providecommand{\ar}{\rightarrow}
+\providecommand{\arr}{\longrightarrow}
+
+
+%----------Theorems----------
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{nondefinition}[theorem]{Non-Definition}
+\newtheorem{exercise}[theorem]{Exercise}
+
+\numberwithin{equation}{subsection}
+
+
+
+\begin{document}
+
+\pagestyle{plain}
+
+
+%%---  sheet number for theorem counter
+%\setcounter{section}{1}   
+
+\begin{center}
+{\large Math 15910 Homework Revisions} \\ 
+{\medium Amatullah Mir} 
+\vspace{.1 in}  
+\end{center}
+
+\section{Homework 1}
+
+\subsection{Problem 1.4.6}
+\textbf{Suppose A $\neq \emptyset$ and B $\neq \emptyset$. Show A $\times$ B = B $\times$ A iff A = B}
+\begin{proof}
+Proof by contradiction. \\
+Suppose $\emptyset \neq A \neq B \neq \emptyset$. \\
+Then $A \nsubseteq B$ or $B \nsubseteq A.$
+\\ There exists x $\in$ A such that: (x $\notin B)$ and there exists s $\notin$ B where (s $\notin$ A).
+\\
+$(x,y) \in (A \times B)$ where y $\in$ B is not an empty set.\\ $(r,s) \in (A \times B)$ where r $\in$ A is not an empty set.
+\\ 
+$(x,y) \in (B \times A)$, and $(r,s) \in (B \times A)$ since ($A \times B) = (B \times A).$
+\\
+$x \in B$ and $s \in A$. This contradicts our initial conditions where x $\notin$ B, s $\notin$ A.
+\\
+\\
+As for the contrapositive: \\
+Suppose if A = B:
+$(A \times B) = (A \times A) = (B \times B) = (B \times A)$.\\
+Suppose that $A = \emptyset$ and $B = \emptyset:$
+\\ then $(A \times B) = \emptyset = (B \times A)$
+\end{proof}
+
+\subsection{Problem 1.6.2}
+\textbf{Let R be a relation on X that satisfies \\ (a) For all a $\in$ X, $(a, b)$ $\in$ R \\ (b) for $a, b, c$ $\in$ X, if $(a,b),(c,b),(b,c)$ $\in$ R, then $(c,a)$ $\in$ R.}
+\begin{proof} Show that R is an equivalence relation.
+\begin{definition}
+A relation on a set is called an equivalence relation if it is reflexive, symmetric, and transitive.
+We must show that the set is reflexive, symmetric, and transitive in order to prove that R is an equivalence relation. 
+\end{definition} \\ 1. Reflexive property: for all $(a,b),(c,b),(b,c)$, we have that $(a-b) = (b-a), (c-b) = (b-c), (b-c)=(c-b)$.
+\\ 2. Symmetry: for all $(a,b),(c,b),(b,c) \in R$, if $a-b = b-a,$ then $b-a = a-b.$ $c-b = b-c,$ then $b-c = c-b.$ $b-c = c-b,$ then $c-b = b-c.$
+\\ 3. Transitivity: for all $(a,b),(c,b),(b,c)$, if $a-b=c-b$ and $c-b=b-c,$ then we get:
+$a-b = b-c$, so (a,b) R (c,a).\\
+Thus, R is an equivalence relation.
+\end{proof}
+\subsection{Problem 1.6.15}
+\textbf{Show that $\sim$ is an equivalence relation on F.} \\
+For $(a,b),(c,d) \in F,$ define ($a,b) \sims (c,d)$ if ad = bc.
+\begin{proof}\\\\
+Reflexive: Let $(a,b) \in \mathbb{Z} \times (\mathbb{Z} - \{0\}).$ 
+then $ab = ba$, so $(a,b) \sim (a,b).$ \\\\
+Symmetric: Let $(a,b),(c,d) \in \mathbb{Z} \times (\mathbb{Z} - \{0\}).$  Suppose $(a,b) \sim (c,d)$. 
+\\
+ad = bc because $(a,b) \sim (c,d)$, and cb = da. Therefore, $(c,d) \sim (a,b).$ 
+\\\\
+Transitive: Let $(a,b),(c,d),(e,f) \in \mathbb{Z} \times (\mathbb{Z} - \{0\}).$ Suppose $(a,b) \sim (c,d)$ and $(c,d) \sim (e,f).$ 
+\\
+$ad = bc$ and $cf = de$ since $(a,b) \sim (c,d)$ and $(c,d) \sim (e,f).$
+\\ If we multiply : $adcf = bcde$, and divide by c and d : $af = be.$ Thus, $(a, b) \sim (e,f)$. \\\\
+Therefore, with these three properties (reflexivity, symmetry, transitivity), this is an equivalence relation.
+
+
+\end{proof}
+
+\section{Homework 2}
+
+\subsection{Problem 1.8.4}
+\textbf{Show that the following are finite sets: \\ (a) The English Alphabet, \\ (b) The set of all possible twelve letter words made up of letters \\from the English alphabet, \\ (c) The set of all subsets of a finite set.}
+\begin{definition} A set A is finite if A is empty or there exists n in N such that there is a bijection f: A -> {1, 2, …, n}, where {1, 2, …, n} is the set of all natural numbers less than or equal to n. In this case, we say that A has n elements.
+\end{definition}
+\noindent 1. The English Alphabet:
+\noindent Define the English alphabet as set A. Each letter corresponds to a distinct number n, and the set A has n elements. In this case, by counting, we know that there are 26 elements in A. The cardinality of the set A is not aleph null, rather it is 26. 
+Since there is a bijection of A and a defined cardinality, the set is finite.
+\\
+\\
+2. The set of all possible twelve letter words made up of letters from the alphabet
+\\
+We know that the set A (alphabet) is finite as shown above. The set of all possible twelve letter words made up from the English alphabet is denoted as subset a. We must prove that if A is finite, then the subset a must also be finite. 
+The cardinality for each word made from the English alphabet is 12 (individual letters). Since there is a defined cardinality for each string of letters amongst the finite set (alphabet), by counting, the set must be finite.
+\\
+\\
+3. The set of all subsets of a finite set:
+\\
+The set of all subset of a finite set is finite. 
+The set of all subsets of a finite set is finite
+Example: we define a set A as the set of natural numbers from 1 - 20. We define subset s as the set of odd numbers in set A, and we define p as the set of even numbers in set A. We then define n as the set of all subsets of A (s and p). By using the same principles in part 1, set n is finite because it has a defined cardinality of 2. By counting, the set has a finite number of subsets, and is therefore finite. 
+
+\subsection{Problem 1.8.12}
+\textbf{Suppose that A, B, and C are subsets of a set X such that A $\subseteq$ B $\subseteq$ C. Show that if A and C have the same cardinality, then A and B have the same cardinality.}
+Two sets A and C will have the same cardinality if there exists a bijective function f : A → C. In this case, A and C have the same cardinality, and are therefore both bijective. If A is a subset of B and has the same cardinality as C, then B must be a subset of C additionally with the same cardinality, since A and C are bijective.
+
+
+\section{Homework 3}
+\subsection{Problem 4}
+\textbf{Construct an injection from $\mathbb{Q}$ to $\mathbb{N}\times\mathbb{N}$}.\\
+Consider Q defined as the set of $\plusminus p/q$, such that $p, q \in \mathbb{N}$ where $b \noteq = 0.$
+If every rational number can be exclusively written as the form $n = \plusminus p/q$ and if p and q are prime,
+then we define $f: \mathbb{Q} \rightarrow \mathbb{N} \times \mathbb{N}$ as f(n)=$<p,q>.$
+Thus, f is injective.
+
+\section{Homework 4}
+\subsection{Problem 1}
+\textbf{Prove that if $x > −1$ then for every n $\in \mathbb{N}$, we have $(1+x)^{n}\geq1+nx.$}
+\begin{proof}
+If $1 + x > 0,$ then $(1+x)^n \geq 1 + nx$.
+Let n = 1. Then, $(1+x)^1 \geq 1+1*x$, $1+x \geq 1+x$
+\\\\
+Then, let n = k. Assume that the inequality holds true for k:
+\\
+$ 1+x > 0 \implies (1+x)^k \geq 1+kx$ for all k $\in \mathbb{N}.$
+\\
+Show that the inequality holds true for k+1:\\
+$(1+x)(1+x)^k \geq (1+kx)(1+x) \implies (1+x)^{k+1} \geq 1 + x + kx + kx^{2}$
+\\
+$(1+k)^{k+1} \geq (1+kx)(1+x) = 1+ kx + x + kx^{2} = 1 + (k+1)x + kx^{2} \geq 1 + (k+1)x$.\\
+Thus, the inequality holds true for $x > -1.$
+
+\end{proof}
+
+\subsection{Problem 3.1.3}
+\textbf{Let a be a positive rational number. Let A = \{$x \in \mathbb{Q}| x^{2}<a$\}. Show that A is bounded in $\mathbb{Q}$.}
+
+\begin{definition}
+Let F be an ordered field. Let A be a non-empty set of F. We say that A is bounded above if there is an element M $\in$ F with the property that if $x \in $ A, then $x \leq$ M. We say that A is bounded below if there is an element m $\in$ F such that if x $\in$ A, then m $\leq$ x. (m is a lower bound for A and M is the upper bound of A. We say that if A has an upper bound and a lower bound, then A is bounded.
+\end{definition}
+If $x^2 < a$, the square root of x yields both the negative and positive square root of a. 
+\begin{center} 
+If we let $a = 4$, then
+\\
+$x^2 < a$ = $x^2 < 4$,
+\\
+$x < \sqrt{a}$ and $x > \sqrt{a}$ = $x < \sqrt{4}$ and $x > \sqrt{4}$,
+\\
+$-\sqrt{a} < x < \sqrt{a}$ = $-\sqrt{4} < x < \sqrt{4}$,
+\end{center}
+$-\sqrt{4} = 2$ is the lower bound of A, and $\sqrt{4} = 2$ is the upper bound of A. Using Definition 3.1, because A has an upper and lower bound, it is bounded in $\mathbb Q$.
+
+
+
+\subsection{Problem 3.1.14}
+\textbf{Suppose that A and B are bounded sets in $\mathbb{R}$. Prove or disprove the following: \\ (i) $lub(A\cupB)$ = $max\{lub(A), lub(B)\}$.\\(ii) If $A+B$ = \{$a+b$ $|$ $a \in A, b \in B\},$ then $lub(A+B) = lub(A) + lub(B).$\\(iii) If the elements of A and B are positive and $A\cdot B = \{ab | a \in A, b\in B$\}, then $lub(A\cdot B) = lub(A) lub(B).$}
+\\
+(i) Define $x= lub(A\cup B$) and let e $\in$ $A\cup B$,
+\\then x$\geq e$ for every element e in $A\cup B$, and therefore x is greater than every element in A and in B. 
+\\then x$\geq lub(A)$, x$\geq lub(B)$
+\\then x $\geq$ max(lub(A), lub(B)).
+\\inverse, we define $x=max(lub(A), lub(B)).$
+\\then $x\geq lub(A), x\geq lub(B) $. x is greater than all elements in A and in B, x $\geq lub(A\cup B)$.
+\\$lub(A\cup B)=max(lub(A), lub(B)).$\\
+\\(ii) $lub(A) \geq a, lub(b)\geq b,$ then $lub(a)+lub(b)\geq a+b.$ 
+\\since lub(A)+lub(B) is an upper bound for a+b, $lub(A)+lub(B)\geq lub(A+B).$
+\\inverse, $lub(A+B)\geq a+b$ for every element a in A and b in B. then $lub(A+B)-a \geq b$, then lub(A+B)-a is an upper bound for b and then $lub(A+B)-a \geq lub(B)$.
+\\then we arrange $lub(A+B)-lub(B) \geq a$, and then $lub(A+B)-lub(B) \geq lub(a)$, $lub(A+B) \geq lub(a)+lub(B)$.
+\\$lub(A+B)= lub(a)+lub(B)$
+\\
+\\(iii) $lub(A) \geq a, lub(b)\geq b,$ then $lub(a)\cdot lub(b)\geq ab$.
+\\ $lub(A \cdot B) \geq ab$ for every element a in A and b in B. It follows that $lub(A \cdot B)/a \geq b$. It follows that $lub(A \cdot B)/a \geq lub(b)$ and so $lub(A \cdot B)/lub(b) \geq a$.This also means that $lub(A \cdot B)/b \geq a$. It follows that $lub(A \cdot B)/b \geq lub(a)$ and so $lub(A \cdot B)/lub(a) \geq b$. \\ $lub(A \cdot B)= lub(a)lub(B)$
+\\
+\\(iv) glb($A\cupB$) = min$\{$glb($A$),glb($A$)$\}$
+\\ If $A+B = \{a + b| a \in A, b \in B\}$ then glb($A+B$) = glb($A$) + glb($B$)
+\\ If the elements of $A$ and $B$ are positive and $A\cdot B = {ab | a \in A, b \in B}$, then glb($A \cdot B$) = glb($A$)glb($B$)
+
+\subsection{Problem 3.2.9}
+\textbf{(i) Show that any irrational number multiplied by any non-zero rational number is irrational. \\ (ii) Show that the product of two irrational numbers may be rational or irrational.}
+
+Define the irrational number as k and the two rational numbers as $p_1/q_1, p_2/q_2$. for $p_i,q_i\in {\mathbb Z}$ and not equal to 0 
+\\ then we assume that k $\times p_1/q_1=p_2/q_2$.
+\\Since $p_1/q_1, p_2/q_2\neq 0$, k=$p_1*p_2/q_1*q_2$
+\\then we say since $p_i,q_i\in {\mathbb Z}$, $p_1*p_2,  q_1*q_2\in {\mathbb Z}$. Then k can be expressed in the form of p/q, where $p,q\in {\mathbb Z}$. However, irrational cannot be expressed in such form, thus contradiction is revealed. 
+\\We prove that irrational times a non-zero rational cannot be a rational.
+\\
+2) We show two examples:
+\\ $\sqrt{2}*\sqrt{2}=2$ is irrational times irrational equals rational.
+\\ $\sqrt{2}*\sqrt{3}=\sqrt{6}$ is irrational  times irrational equals irrational.
+\\Then we show that since rational and the irrational combine is the set of real number R, irrational is a subset of R. 
+\\Since R is closed under multiplication, irrational multiplication can have result only in R, irrational and rational. Since we show that both is possible, we prove it. 
+$\sqrt{6}$ is irrational:
+\begin{proof}
+Suppose that $x \in \mathbb{Q}$ such that $x^{2} = 6$. Since $x \in \mathbb{Q}$, there exists x, y $\in \mathbb{Z}$ such that m or n is odd where $x = \frac{m}{n}.$ This implies that $x^{2} = (\frac{m}{n})^{2} = \frac{m^{2}}{n^{2}} = 6.$
+\\
+Solving for $m^{2}$, we get $m^{2} = 6n^{2}$, so that $m^{2}$ is even. If m is even, then m = 2k, $k \in \mathbb{Z}. \implies m^{2} = (2k)^{2} = 4k^{2} = 6n^{2}$. This suggests that $n^{2}$ is even, and that n is even. But because m or n must be odd, then x $\notin \mathbb{Q}$. Thus, $\sqrt{6}$ is irrational.
+\end{proof}
+
+\section{Homework 5}
+\subsection{Problem 2}
+\textbf{Give an example showing that Theorem 3.4.4 in the textbook is false if we remove the assumption that: \\ (a)  the intervals are closed. \\(b)  the intervals are nested.}
+
+(a) If we remove the assumption that the intervals are closed then there are cases where there is no LUB (as there can not be a least element in T that is greater than or equal to all elements of S assuming S is a subset of a partially ordered set T) which would cause $A$ to not be bounded above and therefore a would not necessarily be an element of $\cap_n\epsilon\mathbb{N} [a_n,b_n]$.
+\\
+(b) If the intervals are not nested then $[a_n+1,b_n+1]$ is not necessarily a subset of $[a_n,b_n]$ which means that there are cases where the $a \epsilon [a_n+1,b_n+1]$ but $a \notin [a_n,b_n]$ which would make there be cases where a would not necessarily be an element of $\cap_n\epsilon\mathbb{N} [a_n,b_n]$.
+
+\subsection{Problem 4}
+\textbf{If $I_{n}$ =  $[a_{n}, b_{n}]$  where n $\in \mathbb{N}$ is a nested  sequence of closed, bounded intervals such that the lengths $b_{n}−a_{n}$ of $I_{n}$ satisfy \begin{center} inf\{$b_{n} − a_{n}|n \in \mathbb{N} = 0$\}
+\end{center}
+then prove that the number x contained in $\cap_{n}I_{n}$ is unique.}
+
+Claim $x \in I_n \forall n \in \mathbb{N}$. By Theorem 3.44 $A$ is bounded above by $b_1$. We can see that $x$ would be the supremum of A because $A \leq b_n$. $x$ would be unique as any $y$ contained in the intersection would have to be equal to $x$ as if $y$ were less than $x$, $x$ would not be the supremum and if it were greater than $x$ then it would be greater than $b_n$ and therefore not in the interval $I_n$.
+
+
+\subsection{Problem 8}
+\textbf{Let ($s_{n})_{n \in \mathbb{N}}$ be a sequence of strictly positive real numbers and suppose that it converges to s $\in \mathbb{R}$. \\(i) If s = 0, show that $\sqrt{s_{n}}_{n \in \mathbb{N}} \rightarrow 0$. \\ (ii) If s $>$ 0, show that $\sqrt{s_{n}}_{n \in \mathbb{N}} \rightarrow$ $\sqrt{s}$.}\\
+\\
+(i) Let $\epsilon > 0$. Since $s = 0$, then there exists an N $\in \mathbb{N}$ such that for all $n > N$, $\sqrt{s_{n}}_{n \in \mathbb{N}} < \epsilon^{2}.$ Since $s_{n} > 0, |s_{n}| = s_{n}. \sqrt{s_{n}} < \epsilon. |\sqrt{s_{n}} - 0| < \epsilon.$ Thus, $\sqrt{s_{n}}_{n \in \mathbb{N}} \rightarrow 0.$
+\\\\
+(ii) Let $\epsilon > 0$. Since $s > 0$, then there exists an N such that if n $>$ N, then $|s_{n} - s| < \epsilon(\sqrt{s}).$ Then:
+\begin{center}
+    $|\sqrt{s_{n}} - \sqrt{s}| = \frac{|s_{n}-s}{\sqrt{s_{n}}+\sqrt{s}}|<\frac{|s_{n}-s}{\sqrt{s}}|<\frac{\epsilon(\sqrt{s})}{\sqrt{s}} = \epsilon$
+\end{center}
+Thus, $\sqrt{s_{n}} \rightarrow \sqrt{s}$
+
+\section{Homework 6}
+No incorrect problems. Yay!
+
+\section{Homework 7}
+\subsection{Problem 1}
+\textbf{Use the Monotone Convergence  Theorem to prove  that  if  we define $e_{n}$ := $(1 + 1/n)^{n}$ then ($e_{n}$) converges.  You may look up and use the Binomial Theorem.}
+\begin{proof}
+We apply the Binomial Theorem:
+\begin{center}
+(1 + $\frac{1}{n})^n$ = 1 + 1 + $\frac{1-\frac{1}{n}}{2!}$} + $\frac{(1-\frac{1}{n})({1-\frac{2}{n}})}{3!}$}
+\\
+$\leq$ 1 + 1 + $\frac{1}{2}$ + $\frac{1}{6}$ + ...
+\\
+$<$ 1 + 1 + $\frac{1}{2}$ + $\frac{1}{4}$ + $\frac{1}{8}$ ... $\leq$ 3.
+
+\end{center}
+From this, we see that $e_{n}$ is increasing and bounded above by 3. It is increasing because each of $e_{n}$'s terms are smaller than the next terms when expanding $e_{n+1}$. Therefore, $e_{n}$ is convergent.
+\end{proof}
+
+\subsection{Problem 3.5.13}
+\textbf{Show that if a Cauchy sequence does not converge to 0, all the terms of the sequence eventually have the same sign.}
+\begin{proof}
+Let $x_{n}$ be a Cauchy sequence. 
+\\\\Let $\epsilon > 0$. For all y, z $\geq$ N, $|x_{y} - x_{z}| < \epsilon$.
+\\Since $x_{n}$ does not converge to 0, there exists $\epsilon > 0$ such that for each N,
+$x_{n} \notin (0-\epsilon, 0+\epsilon)$.
+\\\\
+But for $\epsilon$, there exists a point N' such that for all other later points are within $\epsilon$ of one another, either less than 0 or greater than 0.
+\\\\
+Thus, since all later points past N' are less than -$\epsilon$ or less than $\epsilon$, all later points have to be either one sign, either all negative or all positive.
+\end{proof}
+
+\subsection{Problem 5}
+\textbf{Find the accumulation points of the following sets in $\mathbb{R}$:
+\\ i) S = (0,1);
+\\ ii) S = {$(-1)^{n}$ + $\frac{1}{n}$ $|$ n $\in$ $\mathbb{N}$};
+\\ iii) S = $\mathbb{Q}$;
+\\ iv) S = $\mathbb{Z}$;
+}
+\begin{definition}
+Accumulation point: a point x is an accumulation point in S if every open set containing x contains at least one other point from S. 
+\end{definition}
+\\
+\\ i) [0,1], because the points in the neighborhood (0,1) will be [0,1].
+\\\\ ii) \{-1,1\}, Let n $\in \mathbb{N}$ and $\delta > 0.$ There exists m $\in \mathbb{N}$ by the Archimedean property such that $\frac{1}{2m-1} < \delta$. Thus, $|1+\frac{1}{2m}<\delta$ and $1-\frac{1}{2m-1}<\delta$. Thus, $\plusminus 1 \in S.$ 
+\\\\ iii) all points in $\mathbb{R}$. This is because if a $<$ b are two numbers in $\mathbb{R},$ then there is a rational number x where $a < x < b$ and an irrational number y where $a<y<b$. Infinitely many rational and irrational numbers exist between a and b. Thus, the accumulation points are $\mathbb{R}.$\\
+\\ iv) no accumulation points, since all the integers are isolated. Each integer has a "neighborhood" with no other integers.
+
+\end{document}
+
+
+
+
